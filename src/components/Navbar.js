@@ -17,6 +17,7 @@ const Navbar = () => (
         }
       }
     `}
+    
     render={data => (
       <nav className="navbar is-transparent">
         <div className="container">
@@ -57,3 +58,4 @@ const Navbar = () => (
 )
 
 export default Navbar
+
