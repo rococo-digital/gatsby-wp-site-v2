@@ -30,10 +30,11 @@ import logo from '../img/logo.svg'
             }   
         }
       `}
-      
+     
       render={data => (
-        <nav className="navbar is-transparent">
-          <div className="container">
+        
+        <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
+            
             <div className="navbar-brand">
               <Link to="/" className="navbar-item">
                 <figure className="image">
@@ -42,37 +43,35 @@ import logo from '../img/logo.svg'
               </Link>
             </div>
             
-                <ul className="navbar-start">
-              {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
-                  
-                <li key={item.object_slug}>
+            <div id="mainNavbar" class="navbar-menu">
+                <div className="navbar-start">
+                    {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
                     
-                    {item.wordpress_children ? 
-                        <Link className="navbar-item has-dropdown is-hoverable"
+                    <div className={item.wordpress_children ? 'navbar-item has-dropdown is-hoverable' : 'navbar-item'} key={item.object_slug}>
+                        <Link className="navbar-link"
                             to={item.url}>
                             {item.title}
-                        </Link> : 
-                        <Link className="navbar-item"
-                            to={item.url}>
-                            {item.title}
-                        </Link> }
+                        </Link>
+                    
+                        <div className={item.wordpress_children ? 'navbar-dropdown' : " "}>
                         
-                        <ul>
                             {item.wordpress_children && item.wordpress_children.map((subitem) =>
                             
-                                <li key={item.wordpress_id}>
+                                <div className="navbar-item" key={item.wordpress_id}>
                                     
-                                    <Link className="navbar-item"
+                                    <Link className="navbar-link"
                                         to={subitem.url}>
                                         {subitem.title}
                                     </Link>
-                                </li>
+                                </div>
                                 
                             )}
-                        </ul>
-                </li>
-              ))}
-              </ul >
+                        </div>
+                    </div> 
+           
+                    ))}
+              
+                </div>
             
             
             <div className="navbar-end">
@@ -87,7 +86,8 @@ import logo from '../img/logo.svg'
                 </span>
               </a>
             </div>
-          </div>
+        </div>
+        
         </nav>
       )}
     />
