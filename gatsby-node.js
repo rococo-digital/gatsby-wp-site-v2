@@ -15,8 +15,10 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             id
+            title
             slug
             status
+            path
           }
         }
       }
@@ -43,7 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Call `createPage()` once per WordPress page
       _.each(pages, ({ node: page }) => {
         createPage({
-          path: `/${page.slug}/`,
+          path: `/${page.path}/`,
           component: pageTemplate,
           context: {
             id: page.id,

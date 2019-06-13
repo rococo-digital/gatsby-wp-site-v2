@@ -41,15 +41,25 @@ import logo from '../img/logo.svg'
                   <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
                 </figure>
               </Link>
+
+              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
             </div>
             
             <div id="mainNavbar" class="navbar-menu">
                 <div className="navbar-start">
                     {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
                     
-                    <div className={item.wordpress_children ? 'navbar-item has-dropdown is-hoverable' : 'navbar-item'} key={item.object_slug}>
-                        <Link className="navbar-link"
-                            to={item.url}>
+                    <div className={item.wordpress_children ? 'navbar-item has-dropdown is-hoverable' : 'navbar-item'}>
+                        <Link className={item.wordpress_children ? 'navbar-link' : 'navbar-item'}
+                            to={item.url
+                                .split('/')
+                                .slice(3)
+                                .join('/')}
+                            key={item.slug}>
                             {item.title}
                         </Link>
                     
@@ -57,13 +67,15 @@ import logo from '../img/logo.svg'
                         
                             {item.wordpress_children && item.wordpress_children.map((subitem) =>
                             
-                                <div className="navbar-item" key={item.wordpress_id}>
-                                    
-                                    <Link className="navbar-link"
-                                        to={subitem.url}>
+                              
+                                    <Link className="navbar-item"
+                                        to={subitem.url
+                                            .split('/')
+                                            .slice(3)
+                                            .join('/')}>
                                         {subitem.title}
                                     </Link>
-                                </div>
+                                
                                 
                             )}
                         </div>
