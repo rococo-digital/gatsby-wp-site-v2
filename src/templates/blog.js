@@ -32,7 +32,7 @@ IndexPage.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query IndexQuery($limit: Int!, $skip: Int!) {
+  query BlogQuery($limit: Int!, $skip: Int!) {
     allWordpressPost(
       sort: { fields: date, order: DESC }
       limit: $limit
