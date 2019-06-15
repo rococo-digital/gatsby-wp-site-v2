@@ -77,15 +77,7 @@ import logo from '../img/logo.svg'
                                     </Link>
                                 
                                 
-<<<<<<< HEAD
-                            
-                                </div>
-                                    )}
-                           
-
-=======
                             )}
->>>>>>> parent of bc8ef49... navbar fix + started level 2 dropdown
                         </div>
                     </div> 
            
