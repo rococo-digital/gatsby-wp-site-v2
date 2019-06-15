@@ -83,26 +83,7 @@ import logo from '../img/logo.svg'
                                 
                                 
                             
-                                {subitem.wordpress_children ? 
-                                    <div className={subitem.wordpress_children ? 'navbar-dropdown' : " "}>
-                                    
-                                        {subitem.wordpress_children.map((secondsubitem) =>
-                                        
-                                          
-                                                <Link className="navbar-item"
-                                                    to={secondsubitem.url
-                                                        .split('/')
-                                                        .slice(3)
-                                                        .join('/')}>
-                                                    {secondsubitem.title}
-                                                </Link>
-                                        
-                                        
-                                        )}
-                                       
-                                       
-                                    </div>
-                                    : ""}</div>
+                                </div>
                                     )}
                            
 
