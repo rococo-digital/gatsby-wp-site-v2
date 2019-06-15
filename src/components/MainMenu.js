@@ -23,11 +23,6 @@ import logo from '../img/logo.svg'
                                 wordpress_id
                                 title
                                 url
-                                wordpress_children {
-                                    wordpress_id
-                                    title
-                                    url
-                                }
                             }
                         }   
                     }
@@ -47,7 +42,7 @@ import logo from '../img/logo.svg'
                 </figure>
               </Link>
 
-              <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -67,12 +62,12 @@ import logo from '../img/logo.svg'
                             key={item.slug}>
                             {item.title}
                         </Link>
-                        {item.wordpress_children ? 
+                    
                         <div className={item.wordpress_children ? 'navbar-dropdown' : " "}>
                         
-                            {item.wordpress_children.map((subitem) =>
+                            {item.wordpress_children && item.wordpress_children.map((subitem) =>
                             
-                              <div className={subitem.wordpress_children ? 'navbar-item has-dropdown is-hoverable' : 'navbar-item'}>
+                              
                                     <Link className="navbar-item"
                                         to={subitem.url
                                             .split('/')
@@ -82,17 +77,18 @@ import logo from '../img/logo.svg'
                                     </Link>
                                 
                                 
+<<<<<<< HEAD
                             
                                 </div>
                                     )}
                            
 
+=======
+                            )}
+>>>>>>> parent of bc8ef49... navbar fix + started level 2 dropdown
                         </div>
-                        
-                        : ""}
-                        
                     </div> 
-                                                    
+           
                     ))}
               
                 </div>
