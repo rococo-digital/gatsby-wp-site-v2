@@ -15,16 +15,17 @@ const Author = props => {
   // The `authored_wordpress__POST` returns a simple array instead of an array
   // of edges / nodes. We therefore need to convert the array here.
   if(authored_wordpress__POST){
-  const posts = authored_wordpress__POST.map(post => ({
-    node: post, 
-  }))}
+    const posts = authored_wordpress__POST.map(post => ({
+      node: post, 
+    }))
 
-  return (
-    <Layout>
-      <Helmet title={`${name} | ${siteTitle}`} />
-      <PostList posts={posts} title={title} />
-    </Layout>
-  )
+    return (
+      <Layout>
+        <Helmet title={`${name} | ${siteTitle}`} />
+        <PostList posts={posts} title={title} />
+      </Layout>
+    )
+  }
 }
 
 export default Author
