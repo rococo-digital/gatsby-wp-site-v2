@@ -20,7 +20,7 @@ module.exports = {
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
         
-        
+        excludedRoutes: ["**/users"],
           
       },
     },
