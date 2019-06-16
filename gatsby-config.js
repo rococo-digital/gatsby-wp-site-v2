@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Gatsby + WordPress Starter',
+    siteUrl: `https://iyd-stage.netlify.com`,
+    description: `Blazing fast modern site generator for React`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
