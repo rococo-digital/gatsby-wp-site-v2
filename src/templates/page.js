@@ -2,14 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import BackgroundImage from "gatsby-background-image"
+import BackgroundImage from "gatsby-background-image-es5"
+
+
+const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
+  <BackgroundImage
+    {...props}
+    imgStyle={{
+      ...props.imgStyle,
+      objectFit: objFit,
+      objectPosition: objPosition,
+      fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}"`,
+    }}
+  />
+)
 
 export const PageTemplate = ({ title, content, featuredImage }) => {
   return (
     <div>
     {featuredImage ? 
-      <section class="hero">
-        <BackgroundImage  tag="div"  fluid={featuredImage.localFile.childImageSharp.fluid}  backgroundColor={`#000`}>  
+     
+        <Img  tag="section"  fluid={featuredImage.localFile.childImageSharp.fluid}  backgroundColor={`#000`}>  
+         <section class="hero">
+           
           <div class="hero-body">
               <div class="container">
                   <h1 class="title">
@@ -20,8 +35,9 @@ export const PageTemplate = ({ title, content, featuredImage }) => {
                   </h2>
               </div>
           </div>
-          </BackgroundImage>
-      </section>
+          </section>
+          </Img>
+      
     :<div></div>}
     <section className="section section--gradient">
       <div className="container">
@@ -74,7 +90,7 @@ export const pageQuery = graphql`
       featured_media {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 5000) {
+            fluid(quality: 90, maxWidth: 4160) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

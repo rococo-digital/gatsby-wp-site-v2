@@ -34,6 +34,18 @@ module.exports = {
         path: path.join(__dirname, `src`, `images`),
       },
     },
+    {
+      resolve: `gatsby-image`,
+      options: {
+        loadPolyfills: true
+      }
+    },
+    {
+      resolve: `gatsby-background-image-es5`,
+      options: {
+        loadPolyfills: true
+      }
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
