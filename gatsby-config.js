@@ -1,3 +1,5 @@
+const path = require(`path`)
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby + WordPress Starter',
@@ -17,12 +19,19 @@ module.exports = {
         // The protocol. This can be http or https.
         protocol: 'https',
         // Use 'Advanced Custom Fields' Wordpress plugin
-        useACF: false,
+        useACF: true,
         auth: {},
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
         
           
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     'gatsby-plugin-sharp',

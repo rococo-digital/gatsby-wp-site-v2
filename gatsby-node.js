@@ -19,6 +19,14 @@ exports.createPages = ({ actions, graphql }) => {
             slug
             status
             path
+            featured_media{
+              localFile {
+                size
+                childImageSharp {
+                  id
+                } 
+              }
+            }
           }
         }
       }

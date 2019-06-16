@@ -2,11 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import BackgroundImage from "gatsby-background-image"
 
-export const PageTemplate = ({ title, content }) => {
+export const PageTemplate = ({ title, content, featuredImage }) => {
   return (
+    <div>
+    {featuredImage ? 
+      <section class="hero">
+        <BackgroundImage  tag="div"  fluid={featuredImage.localFile.childImageSharp.fluid}  backgroundColor={`#000`}>  
+          <div class="hero-body">
+              <div class="container">
+                  <h1 class="title">
+                  {title}
+                  </h1>
+                  <h2 class="subtitle">
+                  
+                  </h2>
+              </div>
+          </div>
+          </BackgroundImage>
+      </section>
+    :<div></div>}
     <section className="section section--gradient">
       <div className="container">
+      
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="section">
@@ -22,6 +41,7 @@ export const PageTemplate = ({ title, content }) => {
         </div>
       </div>
     </section>
+    </div>
   )
 }
 
@@ -35,7 +55,7 @@ const Page = ({ data }) => {
 
   return (
     <Layout>
-      <PageTemplate title={page.title} content={page.content} />
+      <PageTemplate title={page.title} content={page.content} featuredImage={page.featured_media} />
     </Layout>
   )
 }
@@ -51,6 +71,15 @@ export const pageQuery = graphql`
     wordpressPage(id: { eq: $id }) {
       title
       content
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 5000) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
     }
   }
 `
