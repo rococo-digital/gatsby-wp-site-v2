@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { v4 } from 'uuid'
 
 const Hero = ({ title, subtitle }) => (
     <section class="hero">
