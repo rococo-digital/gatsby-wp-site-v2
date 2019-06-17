@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import BackgroundImage from "gatsby-background-image-es5"
+import Tiles from "bulma/bulma.sass";
 
 
 const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
@@ -33,6 +34,10 @@ export const PageTemplate = ({ title, content, featuredImage }) => {
                   <h2 class="subtitle">
                   
                   </h2>
+
+            
+
+
               </div>
           </div>
           </section>

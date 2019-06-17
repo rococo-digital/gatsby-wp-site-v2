@@ -56,7 +56,7 @@ exports.createPages = ({ actions, graphql }) => {
       _.each(pages, ({ node: page }) => {
         
         createPage({
-          path: `${page.path}/`,
+          path: `${page.path}`,
           component: pageTemplate,
           context: {
             id: page.id,
