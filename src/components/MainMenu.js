@@ -33,7 +33,7 @@ import logo from '../img/logo.svg'
      
       render={data => (
         
-        <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-white" role="navigation" aria-label="main navigation">
             
             <div className="navbar-brand">
               <Link to="/" className="navbar-item">
