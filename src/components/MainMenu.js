@@ -42,7 +42,8 @@ import logo from '../img/logo.svg'
                 </figure>
               </Link>
 
-              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar"
+              onClick={() => { let toggle = document.querySelector(".navbar-burger"); let menu = document.querySelector(".navbar-menu"); toggle.classList.toggle("is-active"); menu.classList.toggle("is-active"); }}>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
