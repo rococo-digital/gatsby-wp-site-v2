@@ -24,8 +24,25 @@ module.exports = {
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
         
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-inline-images`,
+            options: {
+              baseUrl: `iyd.arunwebnerd.co.uk`,
+              protocol: `https`,
+              // defaults
+              maxWidth: 650,
+              wrapperStyle: ``,
+              postTypes: ["page"],
+              backgroundColor: `white`,
+              withWebp: true, // enable WebP files generation
+            }
+          }
+        ]
           
       },
+      
+    
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -36,15 +53,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-image`,
-      options: {
-        loadPolyfills: true
-      }
     },
     {
       resolve: `gatsby-background-image-es5`,
-      options: {
-        loadPolyfills: true
-      }
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
