@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import MainMenu from './MainMenu'
+import Footer from './Footer'
 import './all.sass'
 
 const TemplateWrapper = ({ children }) => (
@@ -9,6 +10,7 @@ const TemplateWrapper = ({ children }) => (
     <MainMenu />
 
     <div>{children}</div>
+    <Footer />
   </div>
 )
 
