@@ -59,7 +59,7 @@ export const PageTemplate = ({
                 <div className="tile is-ancestor">
                   <div className="tile is-parent is-4">
                     <article className="tile is-child box">
-                      <p className="title">{hero_title ? hero_title : title}</p>
+                      <p className="title has-text-grey">{hero_title ? hero_title : title}</p>
                       <p className="subtitle has-text-white has-text-weight-bold">{subtitle}</p>
                     </article>
                   </div>

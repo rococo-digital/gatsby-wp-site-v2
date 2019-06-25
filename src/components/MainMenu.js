@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/baseline-security-24px.svg'
-import court_icon from '../img/baseline-account_balance-24px.svg'
 
 const MainMenu = () => (
   <StaticQuery
@@ -108,16 +107,7 @@ const MainMenu = () => (
           </div>
 
           <div className="navbar-end">
-            <a
-              className="navbar-item"
-              href="https://github.com/GatsbyCentral/gatsby-starter-wordpress"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon">
-                <img src={github} alt="Github" />
-              </span>
-            </a>
+            
           </div>
         </div>
       </nav>
