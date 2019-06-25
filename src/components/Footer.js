@@ -26,7 +26,7 @@ const Footer = () => (
       }
     `}
     render={data => (
-      <footer className="footer has-background-primary">
+      <footer className="footer section is-medium has-background-primary">
         <div className="container content">
             <div className="columns">
                 <div className="column">
@@ -57,9 +57,6 @@ const Footer = () => (
                     <p className="iyd-footer-link-title">Contact</p>
                 </div>
             </div>
-          <p>
-            <strong>In Your Defence</strong>
-          </p>
         </div>
       </footer>
     )}
