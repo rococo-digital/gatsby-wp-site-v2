@@ -48,6 +48,9 @@ $radius: 2px;
 $radius-large: 3px;
 
 
+svg
+  fill: $white-ter
+
 // Helper Classes
 .full-width-image-container
   width: 100vw
@@ -75,9 +78,6 @@ $radius-large: 3px;
   padding-bottom: 5rem
   background-color: $grey-trans
 
-.section-padding
-  padding: 3rem
-
 .section-padding-vertical
   padding-top: 3rem
   padding-bottom: 3rem
@@ -93,6 +93,28 @@ $radius-large: 3px;
 .iyd-footer-link
     margin-top: .5rem
     text-align: left
+
+.iyd-footer-star   
+    transition-duration: 86ms
+    transition-property: box-shadow,-webkit-transform
+    transition-property: box-shadow,transform
+    transition-property: box-shadow,transform,-webkit-transform
+    will-change: box-shadow,transform
+    background-color: #fff
+    border-radius: 6px
+    box-shadow: 0 1.5rem 1.5rem -1.25rem rgba(10,10,10,.05)
+    display: block
+
+.iyd-footer-star
+  &:hover
+    box-shadow: 0 3rem 3rem -1.25rem rgba(10,10,10,.1)
+      -webkit-transform: translateY(-.5rem)
+      transform: translateY(-.5rem)
+
+
+
+  
+
 
 
 @import "~bulma/bulma.sass"
