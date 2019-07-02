@@ -33,8 +33,8 @@ const Footer = () => (
                     <p className="iyd-footer-link-title">Site Links</p>
                     
                     {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
-                        item => (
-                                <p className="bd-footer-link">
+                        (item, index) => (
+                                <p className="bd-footer-link" key={index}>
                         
                             <Link
                                 
@@ -42,7 +42,7 @@ const Footer = () => (
                                 .split('/')
                                 .slice(3)
                                 .join('/')}
-                                key={item.slug}
+                                
                             >
                                 {item.title}
                             </Link>

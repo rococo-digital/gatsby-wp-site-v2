@@ -33,7 +33,7 @@ export const PageTemplate = ({
   return (
     <main>
       
-      {featuredImage.localFile.childImageSharp.fluid ? (
+      {featuredImage ? (
         <Img
           tag="section"
           fluid={featuredImage.localFile.childImageSharp.fluid}

@@ -62,13 +62,14 @@ const MainMenu = () => (
         <div id="mainNavbar" className="navbar-menu">
           <div className="navbar-start">
             {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
-              item => (
-                <div
+              (item, index) => (
+                <div 
                   className={
                     item.wordpress_children
                       ? 'navbar-item has-dropdown is-hoverable'
                       : 'navbar-item'
                   }
+                  key={index}
                 >
                   <Link
                     className={
@@ -78,7 +79,7 @@ const MainMenu = () => (
                       .split('/')
                       .slice(3)
                       .join('/')}
-                    key={item.slug}
+                    
                   >
                     {item.title}
                   </Link>
@@ -89,13 +90,14 @@ const MainMenu = () => (
                     }
                   >
                     {item.wordpress_children &&
-                      item.wordpress_children.map(subitem => (
+                      item.wordpress_children.map((subitem, subindex) => (
                         <Link
                           className="navbar-item"
                           to={subitem.url
                             .split('/')
                             .slice(3)
                             .join('/')}
+                            key={subindex}
                         >
                           {subitem.title}
                         </Link>
