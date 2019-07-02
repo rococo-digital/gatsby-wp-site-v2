@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/baseline-security-24px.svg'
+import logo from '../img/iydl-logov.svg'
 
 const MainMenu = () => (
   <StaticQuery
