@@ -58,7 +58,7 @@ export const PageTemplate = ({
         ''
       )}
 
-      <section id="intro" className="section has-background-grey">
+      <section id="intro" className={intro ? "section has-background-grey" : "section-small has-background-grey"}>
             <div className="container content has-text-white-ter">
               {intro}
             </div>
