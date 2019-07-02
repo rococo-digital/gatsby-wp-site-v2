@@ -18,26 +18,12 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
   />
 )
 
-const bg_image = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
-  <BackgroundImage
-    {...props}
-    imgStyle={{
-      ...props.imgStyle,
-      objectFit: objFit,
-      objectPosition: objPosition,
-      fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}"`,
-      backgroundImage: `url(${Background})`,
-    }}
-  />
-)
-
 
 
 export const PageTemplate = ({
   title,
   content,
   featuredImage,
-  bgImage,
   intro,
   subtitle,
   hero_title,
@@ -47,7 +33,7 @@ export const PageTemplate = ({
   return (
     <main>
       
-      {featuredImage ? (
+      {featuredImage.localFile.childImageSharp.fluid ? (
         <Img
           tag="section"
           fluid={featuredImage.localFile.childImageSharp.fluid}
@@ -105,7 +91,6 @@ const Page = ({ data }) => {
         title={page.title}
         content={page.content}
         featuredImage={page.featured_media}
-        bgImage={page.acf.background_image}
         intro={page.acf.intro_paragraph}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
@@ -134,15 +119,8 @@ export const pageQuery = graphql`
         hero_subtitle
         hero_title
         intro_paragraph
-        background_image {
-          localFile {
-            childImageSharp {
-              fluid(quality: 90, maxWidth: 800) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
+        
+        
       }
 
       featured_media {

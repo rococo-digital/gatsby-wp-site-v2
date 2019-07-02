@@ -34,7 +34,7 @@ const Footer = () => (
                     
                     {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
                         item => (
-                                <p class="bd-footer-link">
+                                <p className="bd-footer-link">
                         
                             <Link
                                 
