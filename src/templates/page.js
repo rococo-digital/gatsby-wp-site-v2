@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { Hero } from '../components/Hero'
+import { HeroBottom } from '../components/HeroBottom'
 
 import BackgroundImage from 'gatsby-background-image-es5'
 import Tiles from 'bulma/bulma.sass'
@@ -32,31 +34,8 @@ export const PageTemplate = ({
   
   return (
     <main>
-      
-      {featuredImage ? (
-        <Img
-          tag="section"
-          fluid={featuredImage.localFile.childImageSharp.fluid}
-          backgroundColor={`#000`}
-        >
-          <section className="hero">
-            <div className="hero-body">
-              <div className="container">
-                <div className="tile is-ancestor">
-                  <div className="tile is-parent is-4">
-                    <article className="tile is-child box">
-                      <p className="title has-text-grey">{hero_title ? hero_title : title}</p>
-                      <p className="subtitle has-text-white has-text-weight-bold">{subtitle}</p>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </Img>
-      ) : (
-        ''
-      )}
+
+      <Hero featuredImage={featuredImage} title={hero_title ? hero_title : title} subtitle={subtitle} />
 
       <section id="intro" className={intro ? "section has-background-grey" : "section-small has-background-grey"}>
             <div className="container content has-text-white-ter">
@@ -73,6 +52,9 @@ export const PageTemplate = ({
         className="is-fullwidth"
         dangerouslySetInnerHTML={{ __html: content }}
       />
+
+      <HeroBottom featuredImage={featuredImage} title={hero_title ? hero_title : title} subtitle={subtitle} />
+
     </main>
   )
 }

@@ -15,7 +15,7 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
   )
   
 
-export const Hero = ({ featuredImage, title, subtitle }) => (
+export const HeroBottom = ({ featuredImage, title, subtitle }) => (
     <div>
     {featuredImage ? (
         <Img
@@ -28,7 +28,7 @@ export const Hero = ({ featuredImage, title, subtitle }) => (
               <div className="container">
                 <div className="tile is-ancestor">
                   <div className="tile is-parent is-4">
-                    <article className="tile is-child box">
+                    <article className="tile is-child">
                       <p className="title has-text-grey">{title}</p>
                       <p className="subtitle has-text-white has-text-weight-bold">{subtitle}</p>
                     </article>
@@ -44,9 +44,9 @@ export const Hero = ({ featuredImage, title, subtitle }) => (
       </div>
 )
 
-Hero.propTypes = {
+HeroBottom.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
   }
 
-export default Hero
+export default HeroBottom
