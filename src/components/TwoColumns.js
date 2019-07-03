@@ -4,63 +4,53 @@ import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image-es5'
 
 const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
-    <BackgroundImage
-      {...props}
-      imgStyle={{
-        ...props.imgStyle,
-        objectFit: objFit,
-        objectPosition: objPosition,
-        fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}"`,
-      }}
-    />
-  )
-  
-
-export const TwoColumns = ({ featuredImage, title, subtitle }) => (
-    <div>
-    </div>
+  <BackgroundImage
+    {...props}
+    imgStyle={{
+      ...props.imgStyle,
+      objectFit: objFit,
+      objectPosition: objPosition,
+      fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}"`,
+    }}
+  />
 )
 
-const Block = ({ data }) => {
-  const { wordpressPage: page } = data
-
-  return (
-      <TwoColumns
-        featuredImage={page.featured_media}
-        intro={page.acf.intro_paragraph}
-        subtitle={page.acf.hero_subtitle}
-        hero_title={page.acf.hero_title}
+export const TwoColumns = ({ text1, text2, text3, text4, image1, image2 }) => (
+  <section id="side-by-side" className="section">
+    <div className="container is-fullhd">
+      <div className="columns">
         
-      />
-  )
-}
-
-Page.propTypes = {
-  data: PropTypes.object.isRequired,
-}
-export default Hero
-
-export const pageQuery = graphql`
-  query{
-    wordpressPage(id: { eq: $id }) {
-      
-      acf {
-        hero_subtitle
-        hero_title
-        intro_paragraph
+            {image1 ? (
+              <Img
+                tag="section"
+                className="column has-background-grey"
+                fluid={image1.localFile.childImageSharp.fluid}
+                backgroundColor={`#000`}
+              >
+                <article class="tile is-child box is-shadowless">
+                <p className="title has-text-white-ter">
+                  <span className="has-text-weight-bold">Title</span>
+                </p>
+                <p className="subtitle has-text-white-ter">{text1}</p>
+                </article>
+              </Img>
+            ) : (
+              <p className="subtitle has-text-white-ter">{text1}</p>
+            )}
+         
         
-        
-      }
+        <div className="column has-background-grey-light">
+          <article className="tile is-child box is-shadowless has-background-grey-light">
+            <p className="title">
+              <span className="has-text-weight-bold">What You Get</span>
+            </p>
+            <p className="subtitle">{text2}</p>
+            <a className="button is-light">More info</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+)
 
-      featured_media {
-        localFile {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    }
-  }
-`
+export default TwoColumns

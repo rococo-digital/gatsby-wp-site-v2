@@ -7,6 +7,7 @@ import { HeroBottom } from '../components/HeroBottom'
 import BackgroundImage from 'gatsby-background-image-es5'
 import Tiles from 'bulma/bulma.sass'
 import Layout from '../components/Layout'
+import TwoColumns from '../components/TwoColumns';
 
 const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
   <BackgroundImage
@@ -26,10 +27,18 @@ export const PageTemplate = ({
   title,
   content,
   featuredImage,
+  bottomHeroImage,
+  bottomHeroText,
   intro,
   subtitle,
   hero_title,
   children,
+  top_left_box_text,
+  top_right_box_text,
+  bottom_left_box_text,
+  bottom_right_box_text,
+  boxBackgroundImage,
+
 }) => {
   
   return (
@@ -53,7 +62,10 @@ export const PageTemplate = ({
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <HeroBottom featuredImage={featuredImage} title={hero_title ? hero_title : title} subtitle={subtitle} />
+      <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={bottom_left_box_text} text4={bottom_right_box_text} image1={boxBackgroundImage} />
+
+
+      <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />
 
     </main>
   )
@@ -73,11 +85,18 @@ const Page = ({ data }) => {
         title={page.title}
         content={page.content}
         featuredImage={page.featured_media}
+        bottomHeroText={page.acf.bottom_hero_text}
+        bottomHeroImage={page.acf.bottom_hero_image}
         intro={page.acf.intro_paragraph}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
         children={page.children}
-        
+
+        top_left_box_text={page.acf.text_top_left}
+        top_right_box_text={page.acf.text_top_right}
+        bottom_left_box_text={page.acf.text_bottom_left}
+        bottom_right_box_text={page.acf.text_bottom_right}
+        boxBackgroundImage={page.acf.background_image}
       />
     </Layout>
   )
@@ -101,10 +120,32 @@ export const pageQuery = graphql`
         hero_subtitle
         hero_title
         intro_paragraph
+        text_top_left
+        text_top_right
+        background_image{
+          localFile {
+            childImageSharp {
+              fluid(quality: 80, maxWidth: 2160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
         
+        text_bottom_left
+        text_bottom_right
         
+        bottom_hero_text
+        bottom_hero_image{
+          localFile {
+            childImageSharp {
+              fluid(quality: 80, maxWidth: 2160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
       }
-
       featured_media {
         localFile {
           childImageSharp {
