@@ -3,23 +3,9 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Hero } from '../components/Hero'
 import { HeroBottom } from '../components/HeroBottom'
-
-import BackgroundImage from 'gatsby-background-image-es5'
 import Tiles from 'bulma/bulma.sass'
 import Layout from '../components/Layout'
 import TwoColumns from '../components/TwoColumns';
-
-const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
-  <BackgroundImage
-    {...props}
-    imgStyle={{
-      ...props.imgStyle,
-      objectFit: objFit,
-      objectPosition: objPosition,
-      fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}"`,
-    }}
-  />
-)
 
 
 
@@ -37,7 +23,12 @@ export const PageTemplate = ({
   top_right_box_text,
   bottom_left_box_text,
   bottom_right_box_text,
+  top_left_box_text_title,
+  top_right_box_text_title,
+  bottom_left_box_text_title,
+  bottom_right_box_text_title,
   boxBackgroundImage,
+  boxBackgroundImage2,
 
 }) => {
   
@@ -62,7 +53,7 @@ export const PageTemplate = ({
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={bottom_left_box_text} text4={bottom_right_box_text} image1={boxBackgroundImage} />
+      <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={bottom_left_box_text} text4={bottom_right_box_text} title1={top_left_box_text_title} title2={top_right_box_text_title} title3={bottom_left_box_text_title} title4={bottom_right_box_text_title}  image1={boxBackgroundImage} image2={boxBackgroundImage2}/>
 
 
       <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />
@@ -96,7 +87,12 @@ const Page = ({ data }) => {
         top_right_box_text={page.acf.text_top_right}
         bottom_left_box_text={page.acf.text_bottom_left}
         bottom_right_box_text={page.acf.text_bottom_right}
-        boxBackgroundImage={page.acf.background_image}
+        top_left_box_text_title={page.acf.text_top_left_title}
+        top_right_box_text_title={page.acf.text_top_right_title}
+        bottom_left_box_text_title={page.acf.text_bottom_left_title}
+        bottom_right_box_text_title={page.acf.text_bottom_right_title}
+        boxBackgroundImage={page.acf.background_image_top_left}
+        boxBackgroundImage2={page.acf.background_image_bottom_right}
       />
     </Layout>
   )
@@ -120,9 +116,8 @@ export const pageQuery = graphql`
         hero_subtitle
         hero_title
         intro_paragraph
-        text_top_left
-        text_top_right
-        background_image{
+        
+        background_image_top_left{
           localFile {
             childImageSharp {
               fluid(quality: 80, maxWidth: 2160) {
@@ -131,9 +126,23 @@ export const pageQuery = graphql`
             }
           }
         }
-        
+        background_image_bottom_right{
+          localFile {
+            childImageSharp {
+              fluid(quality: 80, maxWidth: 2160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+        text_top_left
+        text_top_right
         text_bottom_left
         text_bottom_right
+        text_top_left_title
+        text_top_right_title
+        text_bottom_left_title
+        text_bottom_right_title
         
         bottom_hero_text
         bottom_hero_image{
