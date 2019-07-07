@@ -30,7 +30,7 @@ export const TwoColumns = ({
             <ColumnBox
               title={title2}
               text={text2}
-              classes="has-background-grey-dark tile is-parent"
+              classes="has-background-grey tile is-parent"
             />
           </div>
           <div className="tile is-ancestor">
@@ -43,7 +43,7 @@ export const TwoColumns = ({
               title={title4}
               text={text4}
               image={image2}
-              classes="has-background-primary tile is-parent"
+              classes="has-background-dark tile is-parent"
             />
           </div>
         </div>

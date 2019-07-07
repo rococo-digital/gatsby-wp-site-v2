@@ -100,8 +100,8 @@ svg
     font-size: 1.25rem
     font-weight: 600
 
-.iyd-footer-link
-    margin-top: .5rem
+.footer.section p.iyd-footer-link
+    margin-bottom: .3rem
     text-align: left
 
 .iyd-footer-star   
@@ -122,16 +122,32 @@ svg
       transform: translateY(-.5rem)
 
 
-
+#quote h2
+  margin-bottom: 0
+  font-size: 2.5rem
+  font-weight: 800
+  line-height: 1.125
+  border-top: 1px solid
+  border-bottom: 1px solid
   
+section#side-by-side .box
+  padding: 6rem 4rem
 
-
+section#intro.section
+  font-weight: 600
 
 @import "~bulma/bulma.sass"
 
 
 .content ul.services-list, ul.services-list
+  list-style-position: inside
   columns: 1
-  list-style-image: url('../img/baseline-check_circle_outline-24px.svg')
+  list-style-image: url('../img/baseline-check_circle-24px-no-border.svg')
   +tablet
     columns: 3
+
+.content ul.services-list li, ul.services-list li
+  font-size: 1.1em
+  font-weight: 600
+  margin-bottom: 1em
+  

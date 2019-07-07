@@ -26,15 +26,15 @@ const Footer = () => (
       }
     `}
     render={data => (
-      <footer className="footer section is-medium has-background-primary">
+      <footer className="footer section has-background-primary">
         <div className="container content">
             <div className="columns">
                 <div className="column">
-                    <p className="iyd-footer-link-title">Site Links</p>
+                    <p className="iyd-footer-link-title">Site Map</p>
                     
                     {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
                         (item, index) => (
-                                <p className="bd-footer-link" key={index}>
+                                <p className="iyd-footer-link" key={index}>
                         
                             <Link
                                 
@@ -52,9 +52,16 @@ const Footer = () => (
                 </div>
                 <div className="column">
                     <p className="iyd-footer-link-title">Company</p>
+                    <p>Bolney Place<br />
+                    Cowfold Road<br />
+                    Bolney<br />
+                    West Sussex<br />
+                    RH17 5QT<br />
+                    United Kingdom</p>
                 </div>
                 <div className="column">
-                    <p className="iyd-footer-link-title">Contact</p>
+                    <p className="iyd-footer-link-title">About</p>
+                    <p>Specialist Criminal Defence Solicitors and Lawyers, In Your Defence Ltd Offer Representation To People Accused Of Or Under Suspicion Of Criminal Offences.</p>
                 </div>
             </div>
         </div>
