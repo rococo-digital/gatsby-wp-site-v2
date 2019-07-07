@@ -19,12 +19,12 @@ exports.createPages = ({ actions, graphql }) => {
             slug
             status
             path
-            featured_media{
+            featured_media {
               localFile {
                 size
                 childImageSharp {
                   id
-                } 
+                }
               }
             }
           }
@@ -37,11 +37,10 @@ exports.createPages = ({ actions, graphql }) => {
         result.errors.forEach(e => console.error(e.toString()))
         return Promise.reject(result.errors)
       }
-      
-      const pageTemplate = path.resolve(`./src/templates/page.js`)
-      
-      
 
+      const pageTemplate = path.resolve(`./src/templates/page.js`)
+      const contactPageTemplate = path.resolve(`./src/templates/contact-page.js`)
+      var component = pageTemplate;
       // Only publish pages with a `status === 'publish'` in production. This
       // excludes drafts, future posts, etc. They will appear in development,
       // but not in a production build.
@@ -54,17 +53,20 @@ exports.createPages = ({ actions, graphql }) => {
 
       // Call `createPage()` once per WordPress page
       _.each(pages, ({ node: page }) => {
-        
+        component = pageTemplate;
+        if (page.path === '/contact/') {
+          console.error(page.path.toString());
+          component = contactPageTemplate;
+        }
         createPage({
           path: `${page.path}`,
-          component: pageTemplate,
+          component: component,
           context: {
             id: page.id,
             slug: page.slug,
           },
         })
       })
-     
     })
     .then(() => {
       return graphql(`
@@ -88,7 +90,6 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const postTemplate = path.resolve(`./src/templates/post.js`)
-      
 
       // In production builds, filter for only published posts.
       const allPosts = result.data.allWordpressPost.edges
@@ -108,8 +109,6 @@ exports.createPages = ({ actions, graphql }) => {
           },
         })
       })
-
-      
     })
     .then(() => {
       return graphql(`
@@ -181,9 +180,7 @@ exports.createPages = ({ actions, graphql }) => {
           },
         })
       })
-    
     })
-    
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -198,4 +195,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-

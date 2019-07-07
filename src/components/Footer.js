@@ -26,7 +26,7 @@ const Footer = () => (
       }
     `}
     render={data => (
-      <footer className="footer section has-background-primary">
+      <footer className="footer section has-background-grey-light">
         <div className="container content">
             <div className="columns">
                 <div className="column">
