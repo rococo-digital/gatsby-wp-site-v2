@@ -6,7 +6,8 @@ export default class ContactForm extends React.Component {
     subject: "",
     email: "",
     message: "",
-
+    mailSent: false,
+    error: null
   }
 
   handleInputChange = event => {

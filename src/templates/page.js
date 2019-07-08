@@ -16,6 +16,7 @@ export const PageTemplate = ({
   bottomHeroImage,
   bottomHeroText,
   intro,
+  intro_title,
   subtitle,
   hero_title,
   children,
@@ -39,7 +40,17 @@ export const PageTemplate = ({
 
       <section id="intro" className={intro ? "section has-background-grey" : "section-small has-background-grey"}>
             <div className="container content has-text-white-ter">
-              {intro}
+                <article>
+                {intro_title ? 
+                <h1 className="title has-text-white-ter">
+                  {intro_title}
+                </h1>
+                : ""}
+                {intro ? 
+                <p className="subtitle has-text-white-ter">{intro}</p>
+                : "" }
+              </article>
+              
             </div>
       </section>
 
@@ -79,6 +90,7 @@ const Page = ({ data }) => {
         bottomHeroText={page.acf.bottom_hero_text}
         bottomHeroImage={page.acf.bottom_hero_image}
         intro={page.acf.intro_paragraph}
+        intro={page.acf.intro_h1}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
         children={page.children}
@@ -116,7 +128,7 @@ export const pageQuery = graphql`
         hero_subtitle
         hero_title
         intro_paragraph
-        
+        intro_h1
         background_image_top_left{
           localFile {
             childImageSharp {

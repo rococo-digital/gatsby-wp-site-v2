@@ -16,17 +16,17 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
 )
 
 export const ColumnBox = ({ title, text, image, classes}) => {
-  const columnClasses = `column ${classes}`
+  const columnClasses = `column is-paddingless ${classes}`
   return (
-    <div >
+    <div className={columnClasses}>
       {image ? (
         <Img
           tag="section"
-          className={columnClasses}
+          
           fluid={image.localFile.childImageSharp.fluid}
           backgroundColor={`#000`}  
         >
-          <article class="tile is-child box is-shadowless">
+          <article class="article-padded">
             <p className="title has-text-white-ter">
               <span className="has-text-weight-bold">{title}</span>
             </p>
@@ -34,8 +34,8 @@ export const ColumnBox = ({ title, text, image, classes}) => {
           </article>
         </Img>
       ) : (
-        <div className={columnClasses}>
-          <article class="tile is-child box is-shadowless">
+        <div>
+          <article class="article-padded">
             <p className="title has-text-white-ter">
               <span className="has-text-weight-bold">{title}</span>
             </p>
