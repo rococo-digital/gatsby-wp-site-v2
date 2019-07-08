@@ -5,9 +5,8 @@ import { Hero } from '../components/Hero'
 import { HeroBottom } from '../components/HeroBottom'
 import Tiles from 'bulma/bulma.sass'
 import Layout from '../components/Layout'
-import TwoColumns from '../components/TwoColumns';
-
-
+import TwoColumns from '../components/TwoColumns'
+import ContactForm from '../components/ContactForm'
 
 export const ContactPageTemplate = ({
   title,
@@ -29,37 +28,51 @@ export const ContactPageTemplate = ({
   bottom_right_box_text_title,
   boxBackgroundImage,
   boxBackgroundImage2,
-
 }) => {
-  
   return (
     <main>
+      <Hero
+        featuredImage={featuredImage}
+        title={hero_title ? hero_title : title}
+        subtitle={subtitle}
+      />
 
-      <Hero featuredImage={featuredImage} title={hero_title ? hero_title : title} subtitle={subtitle} />
-
-      <section id="intro" className={intro ? "section has-background-grey" : "section-small has-background-grey"}>
-            <div className="container content has-text-white-ter">
-              {intro}
-            </div>
+      <section
+        id="intro"
+        className={
+          intro
+            ? 'section has-background-grey'
+            : 'section-small has-background-grey'
+        }
+      >
+        <div className="container content has-text-white-ter">{intro}</div>
       </section>
 
       <section id="subnav">
-            {children ? children.map(
-              item => (<div id={item.id}></div>)) : ""}
+        {children ? children.map(item => <div id={item.id} />) : ''}
       </section>
 
-      <h1>Contact us</h1>
+      <ContactForm />
 
       <div
         className="is-fullwidth"
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={bottom_left_box_text} text4={bottom_right_box_text} title1={top_left_box_text_title} title2={top_right_box_text_title} title3={bottom_left_box_text_title} title4={bottom_right_box_text_title}  image1={boxBackgroundImage} image2={boxBackgroundImage2}/>
-
+      <TwoColumns
+        text1={top_left_box_text}
+        text2={top_right_box_text}
+        text3={bottom_left_box_text}
+        text4={bottom_right_box_text}
+        title1={top_left_box_text_title}
+        title2={top_right_box_text_title}
+        title3={bottom_left_box_text_title}
+        title4={bottom_right_box_text_title}
+        image1={boxBackgroundImage}
+        image2={boxBackgroundImage2}
+      />
 
       <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />
-
     </main>
   )
 }
@@ -84,7 +97,6 @@ const Page = ({ data }) => {
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
         children={page.children}
-
         top_left_box_text={page.acf.text_top_left}
         top_right_box_text={page.acf.text_top_right}
         bottom_left_box_text={page.acf.text_bottom_left}
@@ -118,8 +130,8 @@ export const pageQuery = graphql`
         hero_subtitle
         hero_title
         intro_paragraph
-        
-        background_image_top_left{
+
+        background_image_top_left {
           localFile {
             childImageSharp {
               fluid(quality: 80, maxWidth: 2160) {
@@ -128,7 +140,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        background_image_bottom_right{
+        background_image_bottom_right {
           localFile {
             childImageSharp {
               fluid(quality: 80, maxWidth: 2160) {
@@ -145,9 +157,9 @@ export const pageQuery = graphql`
         text_top_right_title
         text_bottom_left_title
         text_bottom_right_title
-        
+
         bottom_hero_text
-        bottom_hero_image{
+        bottom_hero_image {
           localFile {
             childImageSharp {
               fluid(quality: 80, maxWidth: 2160) {
