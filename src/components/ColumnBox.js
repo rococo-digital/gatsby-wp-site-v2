@@ -26,7 +26,7 @@ export const ColumnBox = ({ title, text, image, classes}) => {
           fluid={image.localFile.childImageSharp.fluid}
           backgroundColor={`#000`}  
         >
-          <article class="article-padded">
+          <article className="article-padded">
             <p className="title has-text-white-ter">
               <span className="has-text-weight-bold">{title}</span>
             </p>
@@ -35,7 +35,7 @@ export const ColumnBox = ({ title, text, image, classes}) => {
         </Img>
       ) : (
         <div>
-          <article class="article-padded">
+          <article className="article-padded">
             <p className="title has-text-white-ter">
               <span className="has-text-weight-bold">{title}</span>
             </p>

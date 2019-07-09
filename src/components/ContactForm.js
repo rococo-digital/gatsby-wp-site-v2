@@ -1,13 +1,15 @@
-import React from "react"
+import React from 'react'
+import axios from 'axios'
+import { withPrefix } from 'gatsby-link'
 
 export default class ContactForm extends React.Component {
   state = {
-    name: "",
-    subject: "",
-    email: "",
-    message: "",
+    name: '',
+    subject: '',
+    email: '',
+    message: '',
     mailSent: false,
-    error: null
+    error: null,
   }
 
   handleInputChange = event => {
@@ -22,22 +24,33 @@ export default class ContactForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`Welcome ${this.state.name}!`)
+    axios({
+      method: 'post',
+      url: 'http://localhost/api/contact/index.php',
+      headers: { 'content-type': 'application/json' },
+      data: this.state,
+    })
+      .then(result => {
+        this.setState({
+          mailSent: result.data.sent,
+        })
+      })
+      .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
-    return(
-    <section id="form" class="section">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-half">
+    return (
+      <section id="form" className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-half">
               <form onSubmit={this.handleSubmit}>
-                <div class="field">
-                  <label class="label">Name</label>
-                  <div class="control">
+                <div className="field">
+                  <label className="label">Name</label>
+                  <div className="control">
                     <input
                       type="text"
-                      class="input"
+                      className="input"
                       name="name"
                       id="name"
                       placeholder="Your name"
@@ -46,12 +59,12 @@ export default class ContactForm extends React.Component {
                     />
                   </div>
                 </div>
-                <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control">
+                <div className="field">
+                  <label className="label">Email</label>
+                  <div className="control">
                     <input
                       type="email"
-                      class="input"
+                      className="input"
                       name="email"
                       id="email"
                       placeholder="Your email"
@@ -60,12 +73,12 @@ export default class ContactForm extends React.Component {
                     />
                   </div>
                 </div>
-                <div class="field">
-                  <label class="label">Subject</label>
-                  <div class="control">
+                <div className="field">
+                  <label className="label">Subject</label>
+                  <div className="control">
                     <input
                       type="text"
-                      class="input"
+                      className="input"
                       name="subject"
                       id="subject"
                       value={this.state.subject}
@@ -73,12 +86,12 @@ export default class ContactForm extends React.Component {
                     />
                   </div>
                 </div>
-                <div class="field">
-                  <label class="label">Message</label>
-                  <div class="control">
+                <div className="field">
+                  <label className="label">Message</label>
+                  <div className="control">
                     <textarea
                       name="message"
-                      class="textarea"
+                      className="textarea"
                       id="message"
                       rows="5"
                       placeholder="Enter your message"
@@ -87,24 +100,24 @@ export default class ContactForm extends React.Component {
                     />
                   </div>
                 </div>
-                <div class="field is-grouped is-grouped-centered">
-                  <p class="control">
-                    <button class="button is-primary" type="submit">
+                <div className="field is-grouped is-grouped-centered">
+                  <p className="control">
+                    <button className="button is-primary" type="submit">
                       Send
                     </button>
                   </p>
-                  <p class="control">
-                    <button class="button is-light" type="reset">
+                  <p className="control">
+                    <button className="button is-light" type="reset">
                       Clear
                     </button>
                   </p>
                 </div>
-                {/* <button type="submit">Send</button>
-            <input type="reset" value="Clear" /> */}
+                {this.state.mailSent && <div>Thank you for contacting us.</div>}
               </form>
             </div>
           </div>
         </div>
-      </section>)
+      </section>
+    )
   }
 }
