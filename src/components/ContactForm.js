@@ -106,11 +106,7 @@ export default class ContactForm extends React.Component {
                       Send
                     </button>
                   </p>
-                  <p className="control">
-                    <button className="button is-light" type="reset">
-                      Clear
-                    </button>
-                  </p>
+                  
                 </div>
                 {this.state.mailSent && <div>Thank you for contacting us.</div>}
               </form>
