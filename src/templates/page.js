@@ -90,7 +90,7 @@ const Page = ({ data }) => {
         bottomHeroText={page.acf.bottom_hero_text}
         bottomHeroImage={page.acf.bottom_hero_image}
         intro={page.acf.intro_paragraph}
-        intro={page.acf.intro_h1}
+        intro_title={page.acf.intro_h1}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
         children={page.children}
