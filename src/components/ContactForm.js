@@ -3,12 +3,6 @@ import axios from 'axios'
 //import ReactMapboxGl, { Layer, Feature, ZoomControl, Marker } from 'react-mapbox-gl'
 import markerIcon from '../img/baseline-room-24px.svg'
 
-// var ReactMapboxGl = require("react-mapbox-gl");
-// var Layer = ReactMapboxGl.Layer;
-// var Feature = ReactMapboxGl.Feature;
-// var Marker = ReactMapboxGl.Marker;
-// var ZoomControl = ReactMapboxGl.ZoomControl;
-
 let mapboxgl
 let ReactMapboxGl = {}
 
@@ -38,6 +32,7 @@ const Map = ReactMapboxGl.Map({
     'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
 });
 const zoom = [13.6]
+const center = [-0.202432, 50.995418]
 
 export default class ContactForm extends React.Component {
   state = {
@@ -165,9 +160,9 @@ export default class ContactForm extends React.Component {
                 }}
                 
                 zoom={zoom}
-                center={[-0.202432, 50.995418]}
+                center={center}
               >
-                <Marker coordinates={[-0.202432, 50.995418]} anchor="bottom">
+                <Marker coordinates={center} anchor="bottom">
                   <img src={markerIcon} />
                 </Marker>
                 <Layer
