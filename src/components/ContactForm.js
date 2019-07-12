@@ -1,13 +1,43 @@
 import React from 'react'
 import axios from 'axios'
-import ReactMapboxGl, { Layer, Feature, ZoomControl, Marker } from 'react-mapbox-gl'
+//import ReactMapboxGl, { Layer, Feature, ZoomControl, Marker } from 'react-mapbox-gl'
 import markerIcon from '../img/baseline-room-24px.svg'
 
-// const Map = ReactMapboxGl({
-//   accessToken:
-//     'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
-// })
-// const zoom = [13.6]
+// var ReactMapboxGl = require("react-mapbox-gl");
+// var Layer = ReactMapboxGl.Layer;
+// var Feature = ReactMapboxGl.Feature;
+// var Marker = ReactMapboxGl.Marker;
+// var ZoomControl = ReactMapboxGl.ZoomControl;
+
+let mapboxgl
+let ReactMapboxGl = {}
+
+if (typeof window !== `undefined`) {
+  mapboxgl = require('mapbox-gl')
+  ReactMapboxGl = require('react-mapbox-gl')
+} else {
+  ReactMapboxGl.Map = () => {
+    return class Mock extends React.Component {
+      constructor() {
+        super()
+      }
+      render() {
+        return <div />
+      }
+    }
+  }
+}
+
+let Layer = ReactMapboxGl.Layer;
+let Feature = ReactMapboxGl.Feature;
+let Marker = ReactMapboxGl.Marker;
+let ZoomControl = ReactMapboxGl.ZoomControl;
+
+const Map = ReactMapboxGl.Map({
+  accessToken:
+    'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
+});
+const zoom = [13.6]
 
 export default class ContactForm extends React.Component {
   state = {
@@ -127,12 +157,13 @@ export default class ContactForm extends React.Component {
             </div>
             <div class="column is-half">
             
-              {/* <Map
+              <Map
                 style="mapbox://styles/iyd/cjxyvn1jb0djp1cmp1oiop131"
                 containerStyle={{
                   height: '100%',
                   width: '100%',
                 }}
+                
                 zoom={zoom}
                 center={[-0.202432, 50.995418]}
               >
@@ -148,7 +179,7 @@ export default class ContactForm extends React.Component {
                 </Layer>
                 <ZoomControl />
                 
-              </Map> */}
+              </Map>
             </div>
           </div>
         </div>
