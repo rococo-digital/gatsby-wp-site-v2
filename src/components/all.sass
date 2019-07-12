@@ -26,6 +26,7 @@ $goldenrod: #e5dda0;
 
 // Update some of Bulma's component variables
 $link: darken($cadet-grey, 25%);
+$link-hover-border: $lavender-grey;
 $primary: $lavender-grey;
 $info: $moonstone;
 $warning: $rose-quartz;
@@ -144,6 +145,14 @@ section#intro.section
   font-weight: 600
 
 @import "~bulma/bulma.sass"
+
+#mainNavbar .not-dropdown
+  &:hover
+    background-color: #f2f2f2
+    color: #0a0a0a
+
+#mainNavbar.navbar-menu a.navbar-item
+  align-self: stretch
 
 .article-padded
   padding: 3rem 1rem

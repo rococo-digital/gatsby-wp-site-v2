@@ -67,13 +67,13 @@ const MainMenu = () => (
                   className={
                     item.wordpress_children
                       ? 'navbar-item has-dropdown is-hoverable'
-                      : 'navbar-item'
+                      : 'navbar-item is-paddingless'
                   }
                   key={index}
                 >
                   <Link
                     className={
-                      item.wordpress_children ? 'navbar-link' : 'navbar-item'
+                      item.wordpress_children ? 'navbar-link' : 'navbar-item  not-dropdown'
                     }
                     to={item.url
                       .split('/')
