@@ -47,8 +47,7 @@ $radius-small: 1px;
 $radius: 2px;
 $radius-large: 3px;
 
-.article-padded
-  padding: 6rem
+
 
 article.tile.is-child.box.is-shadowless
   background-color: rgba(23, 23, 23, 0.75)
@@ -146,6 +145,12 @@ section#intro.section
 
 @import "~bulma/bulma.sass"
 
+.article-padded
+  padding: 3rem 1rem
+  +tablet
+    padding: 6rem 3rem
+  +desktop
+    padding: 6rem
 
 .content ul.services-list, ul.services-list
   margin-bottom: 2rem

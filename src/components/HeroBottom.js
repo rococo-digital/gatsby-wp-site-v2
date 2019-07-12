@@ -24,7 +24,7 @@ export const HeroBottom = ({ featuredImage, text }) => (
       >
         <section className="hero">
           <div className="hero-body">
-            <div className="container">
+            <div className="container box">
               <div className="columns is-centered">
                 <div className="column is-8">
                   <p className="title has-text-white has-text-weight-bold has-text-centered">
