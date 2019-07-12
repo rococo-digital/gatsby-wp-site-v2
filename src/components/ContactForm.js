@@ -1,12 +1,13 @@
 import React from 'react'
 import axios from 'axios'
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl'
+import ReactMapboxGl, { Layer, Feature, ZoomControl, Marker } from 'react-mapbox-gl'
+import markerIcon from '../img/baseline-room-24px.svg'
 
-const Map = ReactMapboxGl({
-  accessToken:
-    'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
-})
-const zoom = [13.6];
+// const Map = ReactMapboxGl({
+//   accessToken:
+//     'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
+// })
+// const zoom = [13.6]
 
 export default class ContactForm extends React.Component {
   state = {
@@ -21,7 +22,7 @@ export default class ContactForm extends React.Component {
       longitude: -100,
       zoom: 3.5,
       bearing: 0,
-      pitch: 0
+      pitch: 0,
     },
   }
 
@@ -52,7 +53,7 @@ export default class ContactForm extends React.Component {
   }
 
   render() {
-    const {viewport} = this.state;
+   
     return (
       <section id="form" className="section">
         <div className="container">
@@ -125,7 +126,8 @@ export default class ContactForm extends React.Component {
               </form>
             </div>
             <div class="column is-half">
-              <Map 
+            
+              {/* <Map
                 style="mapbox://styles/iyd/cjxyvn1jb0djp1cmp1oiop131"
                 containerStyle={{
                   height: '100%',
@@ -134,16 +136,19 @@ export default class ContactForm extends React.Component {
                 zoom={zoom}
                 center={[-0.202432, 50.995418]}
               >
+                <Marker coordinates={[-0.202432, 50.995418]} anchor="bottom">
+                  <img src={markerIcon} />
+                </Marker>
                 <Layer
                   type="symbol"
                   id="marker"
                   layout={{ 'icon-image': 'marker-15' }}
                 >
-                  <Feature
-                    coordinates={[-0.254840, 50.989040]}
-                  />
+                  <Feature coordinates={[-0.202432, 50.995418]} />
                 </Layer>
-              </Map>
+                <ZoomControl />
+                
+              </Map> */}
             </div>
           </div>
         </div>
