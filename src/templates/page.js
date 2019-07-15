@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Hero } from '../components/Hero'
 import { HeroBottom } from '../components/HeroBottom'
+import { SubNavList } from '../components/SubNavList'
 import Tiles from 'bulma/bulma.sass'
 import Layout from '../components/Layout'
 import TwoColumns from '../components/TwoColumns';
@@ -19,7 +20,7 @@ export const PageTemplate = ({
   intro_title,
   subtitle,
   hero_title,
-  children,
+  slug,
   top_left_box_text,
   top_right_box_text,
   bottom_left_box_text,
@@ -47,17 +48,14 @@ export const PageTemplate = ({
                 </h1>
                 : ""}
                 {intro ? 
-                <p className="subtitle has-text-white-ter">{intro}</p>
+                <h2 className="subtitle has-text-white-ter is-size-5 has-text-weight-normal">{intro}</h2>
                 : "" }
               </article>
               
             </div>
       </section>
 
-      <section id="subnav">
-            {children ? children.map(
-              item => (<div id={item.id}></div>)) : ""}
-      </section>
+      <SubNavList slug={slug}/>
 
       <div
         className="is-fullwidth"
@@ -93,7 +91,7 @@ const Page = ({ data }) => {
         intro_title={page.acf.intro_h1}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
-        children={page.children}
+        slug={page.slug}
 
         top_left_box_text={page.acf.text_top_left}
         top_right_box_text={page.acf.text_top_right}
@@ -121,9 +119,7 @@ export const pageQuery = graphql`
     wordpressPage(id: { eq: $id }) {
       title
       content
-      children {
-        id
-      }
+      slug
       acf {
         hero_subtitle
         hero_title
