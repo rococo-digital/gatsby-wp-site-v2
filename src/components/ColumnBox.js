@@ -4,13 +4,17 @@ import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image-es5'
 
 const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
+  
   <BackgroundImage
     {...props}
+    style={{
+      height: "100%"
+    }}
     imgStyle={{
       ...props.imgStyle,
       objectFit: objFit,
       objectPosition: objPosition,
-      fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}"`,
+      fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}; height=100%"`,
     }}
   />
 )

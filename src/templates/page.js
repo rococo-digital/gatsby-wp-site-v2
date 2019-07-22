@@ -7,6 +7,7 @@ import { SubNavList } from '../components/SubNavList'
 import Tiles from 'bulma/bulma.sass'
 import Layout from '../components/Layout'
 import TwoColumns from '../components/TwoColumns';
+import IconBar from '../components/IconBar'
 
 
 
@@ -16,6 +17,7 @@ export const PageTemplate = ({
   featuredImage,
   bottomHeroImage,
   bottomHeroText,
+  display_icons,
   intro,
   intro_title,
   subtitle,
@@ -64,8 +66,9 @@ export const PageTemplate = ({
 
       <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={bottom_left_box_text} text4={bottom_right_box_text} title1={top_left_box_text_title} title2={top_right_box_text_title} title3={bottom_left_box_text_title} title4={bottom_right_box_text_title}  image1={boxBackgroundImage} image2={boxBackgroundImage2}/>
 
+      {display_icons && <IconBar />}
 
-      <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />
+      {bottomHeroImage && bottomHeroText && <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />}
 
     </main>
   )
@@ -88,6 +91,7 @@ const Page = ({ data }) => {
         bottomHeroText={page.acf.bottom_hero_text}
         bottomHeroImage={page.acf.bottom_hero_image}
         intro={page.acf.intro_paragraph}
+        display_icons={page.acf.display_icons}
         intro_title={page.acf.intro_h1}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
@@ -125,6 +129,7 @@ export const pageQuery = graphql`
         hero_title
         intro_paragraph
         intro_h1
+        display_icons
         background_image_top_left{
           localFile {
             childImageSharp {
