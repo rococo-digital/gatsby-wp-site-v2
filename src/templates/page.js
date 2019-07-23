@@ -8,6 +8,7 @@ import Tiles from 'bulma/bulma.sass'
 import Layout from '../components/Layout'
 import TwoColumns from '../components/TwoColumns';
 import IconBar from '../components/IconBar'
+import FeaturedPosts from '../components/FeaturedPosts'
 
 
 
@@ -67,6 +68,8 @@ export const PageTemplate = ({
       <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={bottom_left_box_text} text4={bottom_right_box_text} title1={top_left_box_text_title} title2={top_right_box_text_title} title3={bottom_left_box_text_title} title4={bottom_right_box_text_title}  image1={boxBackgroundImage} image2={boxBackgroundImage2}/>
 
       {display_icons && <IconBar />}
+
+      <FeaturedPosts />
 
       {bottomHeroImage && bottomHeroText && <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />}
 

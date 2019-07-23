@@ -22,9 +22,9 @@ export const HeroBottom = ({ featuredImage, text }) => (
         fluid={featuredImage.localFile.childImageSharp.fluid}
         backgroundColor={`#000`}
       >
-        <section className="hero">
+        <section className="hero hero-bottom">
           <div className="hero-body">
-            <div className="container box">
+            <div className="box">
               <div className="columns is-centered">
                 <div className="column is-8">
                   <p className="title has-text-white has-text-weight-bold has-text-centered">
