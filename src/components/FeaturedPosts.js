@@ -25,12 +25,12 @@ const FeaturedPosts = () => (
           <div className="tile is-ancestor">
           {data.allWordpressPost.edges.map(edge => (
             
-            <div className="tile is-parent">
+            <div key={edge.node.id} className="tile is-parent">
             <article className="tile is-child box has-background-white">
             <p className="title"><Link
             className="post-listing"
             to={edge.node.slug}
-            key={edge.node.id}
+            
           >
             {edge.node.title}
             

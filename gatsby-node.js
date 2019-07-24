@@ -40,6 +40,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       const pageTemplate = path.resolve(`./src/templates/page.js`)
       const contactPageTemplate = path.resolve(`./src/templates/contact-page.js`)
+      const blogPageTemplate = path.resolve(`./src/templates/blog.js`)
       var component = pageTemplate;
       // Only publish pages with a `status === 'publish'` in production. This
       // excludes drafts, future posts, etc. They will appear in development,
@@ -54,10 +55,16 @@ exports.createPages = ({ actions, graphql }) => {
       // Call `createPage()` once per WordPress page
       _.each(pages, ({ node: page }) => {
         component = pageTemplate;
+        if (page.path === '/about-us/blog/') {
+          console.error(page.path.toString());
+          component = blogPageTemplate;
+        }
         if (page.path === '/contact/') {
           console.error(page.path.toString());
           component = contactPageTemplate;
         }
+        
+        if(component != blogPageTemplate){
         createPage({
           path: `${page.path}`,
           component: component,
@@ -65,6 +72,14 @@ exports.createPages = ({ actions, graphql }) => {
             id: page.id,
             slug: page.slug,
           },
+        })}
+        // Create a paginated blog, e.g., /, /page/2, /page/3
+        paginate({
+          createPage,
+          items: pages,
+          itemsPerPage: 10,
+          pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `/about-us/blog` : `/page`),
+          component: blogPageTemplate,
         })
       })
     })

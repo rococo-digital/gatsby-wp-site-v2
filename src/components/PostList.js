@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
-export default class IndexPage extends React.Component {
+export default class BlogPage extends React.Component {
   render() {
     const { posts, title } = this.props
 
@@ -48,7 +48,7 @@ export default class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
+BlogPage.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
 }
