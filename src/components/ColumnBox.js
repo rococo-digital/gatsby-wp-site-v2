@@ -10,8 +10,8 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
     style={{
       height: "100%"
     }}
-    imgStyle={{
-      ...props.imgStyle,
+    imgstyle={{
+      ...props.imgstyle,
       objectFit: objFit,
       objectPosition: objPosition,
       fontFamily: `"object-fit: ${objFit}; object-position: ${objPosition}; height=100%"`,

@@ -1,9 +1,11 @@
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostList from '../components/PostList'
 import Pagination from '../components/Pagination'
+
 
 export default class BlogPage extends React.Component {
   render() {
@@ -32,11 +34,11 @@ BlogPage.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query IndexQuery($limit: Int!, $skip: Int!) {
+  query IndexQuery {
     allWordpressPost(
       sort: { fields: date, order: DESC }
-      limit: $limit
-      skip: $skip
+
+      
     ) {
       edges {
         node {

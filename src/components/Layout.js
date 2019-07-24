@@ -1,8 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import './all.sass'
 import MainMenu from './MainMenu'
 import Footer from './Footer'
-import './all.sass'
+
 
 const TemplateWrapper = ({ children }) => (
   <div>

@@ -5,7 +5,7 @@ import BackgroundImage from 'gatsby-background-image-es5'
 const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
     <BackgroundImage
       {...props}
-      imgStyle={{
+      imgstyle={{
         ...props.imgstyle,
         objectFit: objFit,
         objectPosition: objPosition,
