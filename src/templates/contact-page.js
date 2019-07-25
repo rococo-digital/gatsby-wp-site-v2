@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 import { Hero } from '../components/Hero'
 import { HeroBottom } from '../components/HeroBottom'
-import Tiles from 'bulma/bulma.sass'
-import Layout from '../components/Layout'
 import TwoColumns from '../components/TwoColumns'
 import ContactForm from '../components/ContactForm'
 

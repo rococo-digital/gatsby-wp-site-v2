@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 import { Hero } from '../components/Hero'
 import { HeroBottom } from '../components/HeroBottom'
 import { SubNavList } from '../components/SubNavList'
-import Tiles from 'bulma/bulma.sass'
-import Layout from '../components/Layout'
 import TwoColumns from '../components/TwoColumns';
 import IconBar from '../components/IconBar'
 import FeaturedPosts from '../components/FeaturedPosts'
@@ -69,7 +68,7 @@ export const PageTemplate = ({
 
       {display_icons && <IconBar />}
 
-      <FeaturedPosts />
+      {display_icons && <FeaturedPosts />}
 
       {bottomHeroImage && bottomHeroText && <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />}
 

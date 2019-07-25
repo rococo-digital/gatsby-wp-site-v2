@@ -2,9 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostList from '../components/PostList'
-import Pagination from '../components/Pagination'
+import Layout from './Layout'
+import PostList from './PostList'
+import Pagination from './Pagination'
 
 
 export default class BlogPage extends React.Component {
@@ -15,7 +15,7 @@ export default class BlogPage extends React.Component {
     return (
       <Layout>
         <PostList posts={posts} title="Latest posts" />
-        <Pagination pageContext={pageContext} pathPrefix="/" />
+        <Pagination pageContext={pageContext} pathPrefix="/about-us/blog/" />
       </Layout>
     )
   }
@@ -34,7 +34,7 @@ BlogPage.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query {
     allWordpressPost(
       sort: { fields: date, order: DESC }
 

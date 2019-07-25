@@ -14,12 +14,12 @@ export default class BlogPage extends React.Component {
           </div>
           {posts.map(({ node: post }) => (
             <div
-              className="content"
-              style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+              className="content box"
+              
               key={post.id}
             >
               <p>
-                <Link className="has-text-primary" to={post.slug}>
+                <Link className="title" to={post.slug}>
                   {post.title}
                 </Link>
                 <span> &bull; </span>
