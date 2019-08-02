@@ -40,6 +40,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       const pageTemplate = path.resolve(`./src/templates/page.js`)
       const contactPageTemplate = path.resolve(`./src/templates/contact-page.js`)
+      const venuesPageTemplate = path.resolve(`./src/templates/venues-page.js`)
       const blogPageTemplate = path.resolve(`./src/components/Blog.js`)
       var component;
       // Only publish pages with a `status === 'publish'` in production. This
@@ -63,6 +64,10 @@ exports.createPages = ({ actions, graphql }) => {
         else if (page.path === '/contact/') {
           console.error(page.path.toString());
           component = contactPageTemplate;
+        } 
+        else if (page.path === '/about-us/our-meeting-venues/') {
+          console.error(page.path.toString());
+          component = venuesPageTemplate;
         } 
         else{component = pageTemplate;}
         
