@@ -25,24 +25,29 @@ if (typeof window !== `undefined`) {
 let Layer = ReactMapboxGl.Layer;
 let Feature = ReactMapboxGl.Feature;
 let Marker = ReactMapboxGl.Marker;
+let Popup = ReactMapboxGl.Popup;
 let ZoomControl = ReactMapboxGl.ZoomControl;
 
 const Map = ReactMapboxGl.Map({
   accessToken:
     'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
 });
-const zoom = [13.6]
+const zoom = [7.0]
 const center = [-0.202432, 50.995418]
 
-export default class ContactForm extends React.Component {
+export default class VenueMap extends React.Component {
   state = {
     viewport: {
       latitude: 37.785164,
       longitude: -100,
-      zoom: 3.5,
+      zoom: 13.5,
       bearing: 0,
       pitch: 0,
     },
+    brighton_active: false,
+    bolney_active: false,
+    london_active: false
+
   }
 
   
@@ -68,22 +73,66 @@ export default class ContactForm extends React.Component {
                 style="mapbox://styles/iyd/cjxyvn1jb0djp1cmp1oiop131"
                 containerStyle={{
                   height: '100%',
+                  minHeight: '400px',
                   width: '100%',
                 }}
                 
                 zoom={zoom}
                 center={center}
               >
-                <Marker coordinates={center} anchor="bottom">
+               {this.state.bolney_active ? <Popup
+                    coordinates={[-0.206575, 50.989228]}
+                    >
+                    <p>Our Practice Hub<br/>Bolney Place</p>
+                  </Popup>:null}
+                <Marker
+                  coordinates={[-0.206575, 50.989228]}
+                  type="symbol"
+                  id="Bolney"
+                  layout={{ 'icon-image': 'marker-15' }}
+                  onClick={() => {
+                    this.setState({bolney_active: !this.state.bolney_active});
+                    }}>
+                
+                  <img src={markerIcon} />
+                  
+                </Marker>
+                {this.state.london_active ? <Popup
+                    coordinates={[-0.111340, 51.513222]}
+                    >
+                    <p>London Temple Chambers</p>
+                  </Popup>:null}
+                <Marker
+                   coordinates={[-0.111340, 51.513222]}
+                  type="symbol"
+                  id="London"
+                  layout={{ 'icon-image': 'marker-15' }}
+                  onClick={() => {
+                    this.setState({london_active: !this.state.london_active});
+                    }}>
+                
                   <img src={markerIcon} />
                 </Marker>
-                <Layer
+                {this.state.brighton_active ? <Popup
+                  id="brighton-info"
+                      coordinates={[-0.141831, 50.821927]}
+                      >
+                      <p>Brighton Chambers</p>
+                  </Popup>:
+                  null}
+                <Marker
+                  coordinates={[-0.141831, 50.821927]}
                   type="symbol"
-                  id="marker"
+                  id="Brighton"
                   layout={{ 'icon-image': 'marker-15' }}
-                >
-                  <Feature coordinates={[-0.202432, 50.995418]} />
-                </Layer>
+                  onClick={() => {
+                    this.setState({brighton_active: !this.state.brighton_active});
+                    }}>
+                
+                  <img src={markerIcon} />
+                  
+
+                </Marker>
                 <ZoomControl />
                 
               </Map>
