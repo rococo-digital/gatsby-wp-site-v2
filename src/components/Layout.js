@@ -7,7 +7,8 @@ import Footer from './Footer'
 
 const TemplateWrapper = ({ yoast, children }) => (
   <div>
-    <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_title} titleTemplate={`%s | ${yoast.yoast_wpseo_title}`}>
+    {yoast ?
+    <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_title}>
       <html lang="en" />
       {/* <link rel="canonical" href={yoast.yoast_wpseo_canonical} /> */}
       <meta name="docsearch:version" content="2.0" />
@@ -23,7 +24,8 @@ const TemplateWrapper = ({ yoast, children }) => (
       {/* <meta property="og:image" content={`${siteUrl}${gatsbyIcon}`} /> */}
       <meta property="og:image:width" content="512" />
       <meta property="og:image:height" content="512" />
-    </Helmet>
+    </Helmet> :
+    <Helmet title="In Your Defence"/>}
     <MainMenu />
 
     <div>{children}</div>
