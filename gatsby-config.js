@@ -1,8 +1,9 @@
+require('dotenv').config();
 const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + WordPress Starter',
+    title: 'In Your Defence | Criminal Lawyers',
     siteUrl: `https://iyd-stage.netlify.com`,
     description: `Blazing fast modern site generator for React`,
   },
@@ -20,7 +21,11 @@ module.exports = {
         protocol: 'https',
         // Use 'Advanced Custom Fields' Wordpress plugin
         useACF: true,
-        auth: {},
+        auth: {
+          htaccess_user: process.env.WP_USERNAME,
+          htaccess_pass: process.env.WP_PASSWORD,
+          htaccess_sendImmediately: false
+        },
         // Set to true to debug endpoints on 'gatsby build'
         verboseOutput: false,
         
