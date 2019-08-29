@@ -16,7 +16,7 @@ $lavender-grey: #c5cacc;
 $khaki: #ac7c4c;
 $khaki-light: #e5e1dc;
 $rose-quartz: #a790a5;
-$charcoal: #344055;
+$charcoal: #363636;
 $green: #adbca5;
 $yellow: #e5d352;
 $red: #880d1e;
@@ -181,12 +181,13 @@ section#intro.section
     font-size: 2.2rem
   
 #quote
-    background: #88a2aa
+    background: $grey-dark
     float: right
     max-width: 100%
     padding: 2rem 3rem
     clear: both
     box-shadow: 1rem 1rem gray
+    margin-top: 1rem
     margin-left: 0
     margin-bottom: 3rem
     +tablet
@@ -194,6 +195,7 @@ section#intro.section
       max-width: 500px
       padding: 4rem 6rem
       box-shadow: 1.5rem 1.5rem gray
+      margin-top: 2rem
     +desktop
       padding: 6rem 8rem
       box-shadow: 2rem 2rem gray
@@ -210,13 +212,9 @@ section#intro article h1.title
   margin-top: 1rem
 
 #call-to-action
-    padding: 2rem 1rem
+    padding: 0
     margin-left: 0
     margin-bottom: 0rem
-    +tablet
-      padding: 2rem 3rem
-    article
-        padding: 3rem 3rem
 
 .hero.hero-bottom .hero-body
   padding: 4rem 0rem
