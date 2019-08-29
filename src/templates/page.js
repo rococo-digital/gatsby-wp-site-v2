@@ -25,14 +25,19 @@ export const PageTemplate = ({
   slug,
   top_left_box_text,
   top_right_box_text,
+  middle_left_box_text,
+  middle_right_box_text,
   bottom_left_box_text,
   bottom_right_box_text,
   top_left_box_text_title,
   top_right_box_text_title,
+  middle_left_box_text_title,
+  middle_right_box_text_title,
   bottom_left_box_text_title,
   bottom_right_box_text_title,
   boxBackgroundImage,
   boxBackgroundImage2,
+  boxBackgroundImage3,
 
 }) => {
   
@@ -64,7 +69,7 @@ export const PageTemplate = ({
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={bottom_left_box_text} text4={bottom_right_box_text} title1={top_left_box_text_title} title2={top_right_box_text_title} title3={bottom_left_box_text_title} title4={bottom_right_box_text_title}  image1={boxBackgroundImage} image2={boxBackgroundImage2}/>
+      <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>
 
       {display_icons && <IconBar />}
 
@@ -101,14 +106,19 @@ const Page = ({ data }) => {
 
         top_left_box_text={page.acf.text_top_left}
         top_right_box_text={page.acf.text_top_right}
+        middle_left_box_text={page.acf.text_middle_left}
+        middle_right_box_text={page.acf.text_middle_right}
         bottom_left_box_text={page.acf.text_bottom_left}
         bottom_right_box_text={page.acf.text_bottom_right}
         top_left_box_text_title={page.acf.text_top_left_title}
         top_right_box_text_title={page.acf.text_top_right_title}
+        middle_left_box_text_title={page.acf.text_middle_left_title}
+        middle_right_box_text_title={page.acf.text_middle_right_title}
         bottom_left_box_text_title={page.acf.text_bottom_left_title}
         bottom_right_box_text_title={page.acf.text_bottom_right_title}
         boxBackgroundImage={page.acf.background_image_top_left}
-        boxBackgroundImage2={page.acf.background_image_bottom_right}
+        boxBackgroundImage3={page.acf.background_image_bottom_right}
+        boxBackgroundImage2={page.acf.background_image_middle_right}
       />
     </Layout>
   )
@@ -171,12 +181,16 @@ export const pageQuery = graphql`
         }
         text_top_left
         text_top_right
+        text_middle_left
+        text_middle_right
         text_bottom_left
         text_bottom_right
         text_top_left_title
         text_top_right_title
         text_bottom_left_title
         text_bottom_right_title
+        text_middle_left_title
+        text_middle_right_title
         
         bottom_hero_text
         bottom_hero_image{

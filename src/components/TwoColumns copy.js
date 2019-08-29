@@ -8,85 +8,62 @@ export const TwoColumns = ({
   text2,
   text3,
   text4,
-  text5,
-  text6,
   title1,
   title2,
   title3,
   title4,
-  title5,
-  title6,
   image1,
   image2,
-  image3,
 }) => {
   if(text1 && text2){
   return (
     <section id="side-by-side" className="section">
-      
+      {text3 && text4 ? (
         <div className="container is-fullhd">
-          {text1 && text2 &&
           <div className="columns">
-            {image1 ? 
             <ColumnBox
               title={title1}
               text={text1}
               image={image1}
               classes="has-background-dark is-half"
-            /> : 
-            <ColumnBox
-              title={title1}
-              text={text1}
-              classes="has-background-dark is-half"
-            />}
+            />
             <ColumnBox
               title={title2}
               text={text2}
               classes="has-background-grey is-half"
             />
-          </div>}
-          {text3 && text4 &&
+          </div>
           <div className="tile is-ancestor">
             <ColumnBox
               title={title3}
               text={text3}
               classes="has-background-grey is-half"
             />
-            {image2 ? 
             <ColumnBox
               title={title4}
               text={text4}
+              image={image2}
+              classes="has-background-dark column  is-half"
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="container is-fullhd">
+          <div className="columns is-ancestor">
+            <ColumnBox
+              title={title1}
+              text={text1}
               image={image1}
               classes="has-background-dark is-half"
-            /> :
-            <ColumnBox
-              title={title4}
-              text={text4}
-              classes="has-background-dark is-half"
-            />}
-          </div>}
-          {text5 && text6 &&
-          <div className="columns">
-            {image3 ? 
-            <ColumnBox
-              title={title5}
-              text={text5}
-              image={image3}
-              classes="has-background-dark is-half"
-            /> : 
-            <ColumnBox
-              title={title5}
-              text={text5}
-              classes="has-background-dark is-half"
-            />}
-            <ColumnBox
-              title={title6}
-              text={text6}
-              classes="has-background-grey is-half"
             />
-          </div>}
+            <ColumnBox
+              title={title2}
+              text={text2}
+              classes="has-background-grey-dark is-half "
+            />
+          </div>
         </div>
-      
+      )}
     </section>
   )}
   return(false)
