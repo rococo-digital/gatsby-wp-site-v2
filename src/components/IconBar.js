@@ -1,7 +1,7 @@
 import React from 'react'
-import business from '../img/baseline-location_city-24px.svg'
+import thumb from '../img/thumb-up.svg'
 import gavel from '../img/baseline-gavel-24px.svg'
-import court from '../img/baseline-account_balance-24px.svg'
+import versatile from '../img/versatile.svg'
 import compass from '../img/baseline-explore-24px.svg'
 
 export const IconBar = () => {
@@ -11,21 +11,21 @@ export const IconBar = () => {
       <div className="columns is-mobile is-multiline has-text-centered">
         <div className="column is-half-mobile">
           <span className="icon is-large">
-            <img src={business} alt="Reputable" />
+            <img src={thumb} alt="Reputable" />
           </span>
           <p className="subtitle has-text-weight-bold">Reputable</p>
         </div>
         <div className="column is-half-mobile">
           <span className="icon is-large">
-            <img src={court} alt="Superior Service" />
+            <img src={versatile} alt="Superior Service" />
           </span>
-          <p className="subtitle has-text-weight-bold">Service</p>
+          <p className="subtitle has-text-weight-bold">Versatile</p>
         </div>
         <div className="column is-half-mobile">
           <span className="icon is-large">
             <img src={gavel} alt="Results Driven" />
           </span>
-          <p className="subtitle has-text-weight-bold">Results driven</p>
+          <p className="subtitle has-text-weight-bold">Proven</p>
         </div>
         <div className="column is-half-mobile">
           <span className="icon is-large">
