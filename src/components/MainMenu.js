@@ -61,7 +61,8 @@ const MainMenu = () => (
 
         <div id="mainNavbar" className="navbar-menu">
           <div className="navbar-start">
-            {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
+            {data.allWordpressWpApiMenusMenusItems.edges.map((menu) => (<div>{menu.node.name === "MainMenu" && 
+            menu.node.items.map(
               (item, index) => (
                 <div 
                   className={
@@ -105,7 +106,7 @@ const MainMenu = () => (
                   </div>
                 </div>
               )
-            )}
+            )}</div>))}
           </div>
 
           <div className="navbar-end">

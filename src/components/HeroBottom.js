@@ -31,8 +31,8 @@ export const HeroBottom = ({ featuredImage, text }) => (
                     {text}
                     
                   </p>
-                  <p class="has-text-centered">
-                  <a class="button is-light" href="/contact/">Contact Us Now</a>
+                  <p className="has-text-centered">
+                  <a className="button is-light" href="/contact/">Contact Us Now</a>
                   </p>
                   
                 </div>

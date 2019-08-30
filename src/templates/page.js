@@ -90,7 +90,7 @@ const Page = ({ data }) => {
   const { wordpressPage: page } = data
 
   return (
-    <Layout yoast={page.yoast_meta}>
+    <Layout yoast={page.yoast_meta} menus={data.allWordpressWpApiMenusMenusItems}>
       <PageTemplate
         title={page.title}
         content={page.content}
@@ -132,6 +132,24 @@ export default Page
 
 export const pageQuery = graphql`
   query PageById($id: String!) {
+    allWordpressWpApiMenusMenusItems {
+      edges {
+        node {
+          name
+          count
+          items {
+            order
+            title
+            url
+            wordpress_children {
+              wordpress_id
+              title
+              url
+            }
+          }
+        }
+      }
+    }
     wordpressPage(id: { eq: $id }) {
       title
       content

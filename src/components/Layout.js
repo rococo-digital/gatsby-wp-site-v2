@@ -6,6 +6,7 @@ import Footer from './Footer'
 
 
 const TemplateWrapper = ({ yoast, children }) => (
+
   <div>
     {yoast ?
     <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_title}>
