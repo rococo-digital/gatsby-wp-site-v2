@@ -56,7 +56,7 @@ export const TwoColumns = ({
             <ColumnBox
               title={title4}
               text={text4}
-              image={image1}
+              image={image2}
               classes="has-background-dark is-half"
             /> :
             <ColumnBox

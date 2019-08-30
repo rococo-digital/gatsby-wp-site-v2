@@ -179,6 +179,15 @@ export const pageQuery = graphql`
             }
           }
         }
+        background_image_middle_right{
+          localFile {
+            childImageSharp {
+              fluid(quality: 80, maxWidth: 2160) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
         text_top_left
         text_top_right
         text_middle_left
