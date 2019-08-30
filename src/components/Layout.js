@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import './all.sass'
+import TopBar from './TopBar'
 import MainMenu from './MainMenu'
 import Footer from './Footer'
 
@@ -27,6 +28,7 @@ const TemplateWrapper = ({ yoast, children }) => (
       <meta property="og:image:height" content="512" />
     </Helmet> :
     <Helmet title="In Your Defence"/>}
+    <TopBar />
     <MainMenu />
 
     <div>{children}</div>
