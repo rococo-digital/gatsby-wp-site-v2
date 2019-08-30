@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
+import Img from "gatsby-image"
 
 const Footer = () => (
   <StaticQuery
@@ -20,6 +21,15 @@ const Footer = () => (
                   url
                 }
               }
+            }
+          }
+        }
+        file(relativePath: { eq: "sra.jpg" }) {
+          childImageSharp {
+            # Specify the image processing specifications right in the query.
+            # Makes it trivial to update as your page's design changes.
+            fixed( height :225) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -74,6 +84,11 @@ const Footer = () => (
                 Suspicion Of Criminal Offences.
               </p>
             </div>
+          </div>
+        </div>
+        <div className="columns is-centered">
+        <div className="column is-one-third">
+          <Img fixed={data.file.childImageSharp.fixed} />
           </div>
         </div>
       </footer>
