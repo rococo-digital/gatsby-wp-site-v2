@@ -12,14 +12,14 @@ const TopBar = () => {
         <div className="group">
           <a
               className="topbar-item"
-              href="tel:00441293550400"
+              href="tel:+44 (0)1293 550400"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className="icon mobile is-hidden-tablet">
                 <img src={phoneIcon} alt="Telephone" />
               </span>
-              <span className="topbar-item-text is-hidden-mobile">tel:00441293550400</span>
+              <span className="topbar-item-text is-hidden-mobile">tel:+44 (0)1293 550400</span>
             </a>
             </div>
             <div className="group">
