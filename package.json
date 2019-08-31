@@ -60,7 +60,7 @@
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.1.0",
-    "gatsby-cli": "^2.7.26",
+    "gatsby-cli": "^2.7.41",
     "prettier": "^1.7.4",
     "rimraf": "^2.6.2"
   },

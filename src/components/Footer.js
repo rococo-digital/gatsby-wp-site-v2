@@ -42,8 +42,8 @@ const Footer = () => (
             <div className="column">
               <p className="iyd-footer-link-title">Site Map</p>
 
-              {data.allWordpressWpApiMenusMenusItems.edges.map(menu => (
-                <div>
+              {data.allWordpressWpApiMenusMenusItems.edges.map((menu, key) => (
+                <div key={key}>
                   {menu.node.name === 'footer-menu' &&
                     menu.node.items.map((item, index) => (
                       <p className="iyd-footer-link" key={index}>
