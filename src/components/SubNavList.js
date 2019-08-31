@@ -32,14 +32,14 @@ export const SubNavList = ({ slug }) => (
     render={data => {
       let parent
       let mainmenu
-      console.log(slug)
+    
       data.allWordpressWpApiMenusMenusItems.edges.map((menu) => {if(menu.node.name === "MainMenu"){
         menu.node.items.map(function(
           cell
         ) {
           if (cell.object_slug.includes(slug)) {
             parent = cell
-            console.log(cell.object_slug)
+           
           }
         })
         
@@ -48,9 +48,9 @@ export const SubNavList = ({ slug }) => (
       
       let object = null
       if (parent) {
-        console.log(parent)
+  
         if (parent.wordpress_children) {
-          console.log(parent.wordpress_children)
+        
           object = (
             <section id="subnav" className="section">
               <div className="container content">
