@@ -26,24 +26,46 @@ export const TwoColumns = ({
       
         <div className="container is-fullhd">
           {text1 && text2 &&
-          <div className="columns">
-            {image1 ? 
-            <ColumnBox
-              title={title1}
-              text={text1}
-              image={image1}
-              classes="has-background-dark is-half"
-            /> : 
-            <ColumnBox
-              title={title1}
-              text={text1}
-              classes="has-background-dark is-half"
-            />}
-            <ColumnBox
-              title={title2}
-              text={text2}
-              classes="has-background-grey is-half"
-            />
+          <div>
+            <div className="columns  is-hidden-tablet">
+              <ColumnBox
+                title={title2}
+                text={text2}
+                classes="has-background-grey is-half"
+              />
+              {image1 ? 
+              <ColumnBox
+                title={title1}
+                text={text1}
+                image={image1}
+                classes="has-background-dark is-half"
+              /> : 
+              <ColumnBox
+                title={title1}
+                text={text1}
+                classes="has-background-dark is-half"
+              />}
+              
+            </div>
+            <div className="columns  is-hidden-mobile">
+              {image1 ? 
+              <ColumnBox
+                title={title1}
+                text={text1}
+                image={image1}
+                classes="has-background-dark is-half"
+              /> : 
+              <ColumnBox
+                title={title1}
+                text={text1}
+                classes="has-background-dark is-half"
+              />}
+              <ColumnBox
+                title={title2}
+                text={text2}
+                classes="has-background-grey is-half"
+              />
+            </div>
           </div>}
           {text3 && text4 &&
           <div className="tile is-ancestor">
@@ -66,24 +88,47 @@ export const TwoColumns = ({
             />}
           </div>}
           {text5 && text6 &&
-          <div className="columns">
-            {image3 ? 
-            <ColumnBox
-              title={title5}
-              text={text5}
-              image={image3}
-              classes="has-background-dark is-half"
-            /> : 
-            <ColumnBox
-              title={title5}
-              text={text5}
-              classes="has-background-dark is-half"
-            />}
-            <ColumnBox
-              title={title6}
-              text={text6}
-              classes="has-background-grey is-half"
-            />
+          <div>
+            <div className="columns is-hidden-tablet">
+              <ColumnBox
+                title={title6}
+                text={text6}
+                classes="has-background-grey is-half"
+              />
+              {image3 ? 
+              <ColumnBox
+                title={title5}
+                text={text5}
+                image={image3}
+                classes="has-background-dark is-half"
+                
+              /> : 
+              <ColumnBox
+                title={title5}
+                text={text5}
+                classes="has-background-dark is-half"
+              />}
+            </div>
+            <div className="columns is-hidden-mobile">
+              {image3 ? 
+              <ColumnBox
+                title={title5}
+                text={text5}
+                image={image3}
+                classes="has-background-dark is-half"
+                
+              /> : 
+              <ColumnBox
+                title={title5}
+                text={text5}
+                classes="has-background-dark is-half"
+              />}
+              <ColumnBox
+                title={title6}
+                text={text6}
+                classes="has-background-grey is-half"
+              />
+            </div>
           </div>}
         </div>
       

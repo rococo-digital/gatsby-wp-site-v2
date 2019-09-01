@@ -65,7 +65,7 @@ export default class ContactForm extends React.Component {
     event.preventDefault()
     axios({
       method: 'post',
-      url: 'http://localhost/api/contact/index.php',
+      url: 'https://iydl.co.uk/api/contact/index.php',
       headers: { 'content-type': 'application/json' },
       data: this.state,
     })
@@ -150,7 +150,7 @@ export default class ContactForm extends React.Component {
                 {this.state.mailSent && <div>Thank you for contacting us.</div>}
               </form>
             </div>
-            <div class="column is-half">
+            <div className="column is-half">
             
               <Map
                 style="mapbox://styles/iyd/cjxyvn1jb0djp1cmp1oiop131"

@@ -36,7 +36,7 @@ const MainMenu = () => (
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             <figure className="image">
-              <img src={logo} alt="In Your Defence" style={{ width: '328px' }} />
+              <img src={logo} alt="In Your Defence" style={{ width: '235px' }} />
             </figure>
           </Link>
 

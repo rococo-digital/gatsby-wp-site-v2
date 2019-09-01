@@ -1,6 +1,6 @@
 import React from 'react'
 import thumb from '../img/thumb-up.svg'
-import gavel from '../img/baseline-gavel-24px.svg'
+import verified from '../img/verified.svg'
 import versatile from '../img/versatile.svg'
 import compass from '../img/baseline-explore-24px.svg'
 
@@ -23,7 +23,7 @@ export const IconBar = () => {
         </div>
         <div className="column is-half-mobile">
           <span className="icon is-large">
-            <img src={gavel} alt="Results Driven" />
+            <img src={verified} alt="Results Driven" />
           </span>
           <p className="subtitle has-text-weight-bold">Proven</p>
         </div>
