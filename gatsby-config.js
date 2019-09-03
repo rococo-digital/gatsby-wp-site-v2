@@ -4,8 +4,8 @@ const path = require(`path`)
 module.exports = {
   siteMetadata: {
     title: 'In Your Defence | Criminal Lawyers',
-    siteUrl: `https://iyd-stage.netlify.com`,
-    description: `Blazing fast modern site generator for React`,
+    siteUrl: `https://iydl.co.uk`,
+    description: `Criminal defence lawyers`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -64,6 +64,7 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-htaccess',
     {
       // Removes unused css rules
       resolve:'gatsby-plugin-purgecss',
@@ -72,10 +73,22 @@ module.exports = {
         develop: true,
         // Purge only the main css file
         purgeOnly: ['/all.sass'],
-        whitelist: ['tile', 'anchor-list', 'h1', 'h2', 'h3', 'h4', 'h5'],
-        whitelistPatterns: [/^btn/, /^column/, /^has-background/, /^is-one/, /^font/, /^content/]
+        whitelist: ['tile', 'anchor-list', 'h1', 'h2', 'h3', 'h4', 'h5', 'call-to-action', 'quote'],
+        whitelistPatterns: [/^btn/, /^column/, /^has-background/, /^is-one/, /^font/, /^content/, /^call-to-action/, /^section/, /^is-/]
       },
     },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: `UA-131811618-8`,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true,
+      },
+    },
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }
