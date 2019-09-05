@@ -89,6 +89,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://iydl.co.uk',
+        sitemap: 'https://iydl.co.uk/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }

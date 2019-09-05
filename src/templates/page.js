@@ -90,7 +90,7 @@ const Page = ({ data }) => {
   const { wordpressPage: page } = data
 
   return (
-    <Layout siteUrl={data.site.siteMetadata.siteUrl} yoast={page.yoast_meta} menus={data.allWordpressWpApiMenusMenusItems}>
+    <Layout siteUrl={data.site.siteMetadata.siteUrl} slug={page.slug} image={page.featured_media} yoast={page.yoast_meta} menus={data.allWordpressWpApiMenusMenusItems}>
       <PageTemplate
         title={page.title}
         content={page.content}

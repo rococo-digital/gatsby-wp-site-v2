@@ -6,7 +6,7 @@ import MainMenu from './MainMenu'
 import Footer from './Footer'
 import favicon from '../img/iydl-logov.svg'
 
-const TemplateWrapper = ({ siteUrl, yoast, children }) => (
+const TemplateWrapper = ({ siteUrl, slug, image, yoast, children }) => (
 
   <div>
     {yoast ?
@@ -18,18 +18,19 @@ const TemplateWrapper = ({ siteUrl, yoast, children }) => (
         content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"
       />
       <meta property="og:locale" content="en_GB" />
+      {yoast.yoast_wpseo_title && <meta property="og:title" content={yoast.yoast_wpseo_title} />}
       <meta property="og:type" content="website" />
-      <meta property="og:description" content={yoast.yoast_wpseo_metadesc} />
-      <meta property="og:url" content={siteUrl} />
-      <meta property="og:site_name" content={yoast.yoast_wpseo_website_name} />
-      <meta property="og:image" content={favicon} />
-      <meta property="og:image:width" content="64" />
-      <meta property="og:image:height" content="64" />
+      {yoast.yoast_wpseo_metadesc && <meta property="og:description" content={yoast.yoast_wpseo_metadesc} />}
+      <meta property="og:url" content={siteUrl + "/" + slug} />
+      {yoast.yoast_wpseo_website_name && <meta property="og:site_name" content={yoast.yoast_wpseo_website_name} />}
+      {image && <meta property="og:image" content={image.localFile.childImageSharp.fluid.src} />}
+      {image && <meta property="og:image:width" content={image.localFile.childImageSharp.fluid.width} />}
+      {image && <meta property="og:image:height" content={image.localFile.childImageSharp.fluid.height} />}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:description" content={yoast.yoast_wpseo_twitter_description} />
-      <meta name="twitter:title" content={yoast.yoast_wpseo_twitter_title} />
+      {yoast.yoast_wpseo_twitter_description && <meta name="twitter:description" content={yoast.yoast_wpseo_twitter_description} />}
+      {yoast.yoast_wpseo_twitter_title && <meta name="twitter:title" content={yoast.yoast_wpseo_twitter_title} />}
       <meta name="twitter:site" content="@InYourDefenceUK" />
-      <meta name="twitter:image" content={favicon} />
+      {yoast.yoast_wpseo_twitter_image && <meta name="twitter:image" content={yoast.yoast_wpseo_twitter_image} />}
       <meta name="twitter:creator" content="@InYourDefenceUK" />
 
 
