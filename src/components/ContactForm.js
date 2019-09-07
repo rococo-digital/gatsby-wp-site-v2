@@ -65,7 +65,7 @@ export default class ContactForm extends React.Component {
     event.preventDefault()
     axios({
       method: 'post',
-      url: 'https://iydl.co.uk/api/contact/index.php',
+      url: 'http://localhost/api/365/index.php',
       headers: { 'content-type': 'application/json' },
       data: this.state,
     })

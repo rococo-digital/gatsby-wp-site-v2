@@ -14,8 +14,9 @@ if ($_POST)
 
 	http_response_code(200);
 	$subject = $_POST['name'];
-	$to = "support@iydl.co.uk";
-	$from = $_POST['email'];
+	$to = "matt@rococodigital.co.uk";
+	$from = "website@iydl.co.uk";
+	$replyto = $_POST['email'];
 
 	// data
 
@@ -25,7 +26,8 @@ if ($_POST)
 
 	$headers = "MIME-Version: 1.0\r\n";
 	$headers.= "Content-type: text/html; charset=UTF-8\r\n";
-	$headers.= "From: <" . $from . ">";
+	$headers.= 	"From: <" . $from . ">" . "\r\n" . 
+				"Reply-To: " . $replyto . "\r\n";
 	mail($to, $subject, $msg, $headers);
 
 	// echo json_encode( $_POST );
