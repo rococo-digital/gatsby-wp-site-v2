@@ -14,6 +14,7 @@ export const VenuesPageTemplate = ({
   bottomHeroImage,
   bottomHeroText,
   intro,
+  intro_title,
   subtitle,
   hero_title,
   children,
@@ -36,15 +37,20 @@ export const VenuesPageTemplate = ({
         subtitle={subtitle}
       />
 
-      <section
-        id="intro"
-        className={
-          intro
-            ? 'section has-background-grey'
-            : 'section-small has-background-grey'
-        }
-      >
-        <div className="container content has-text-white-ter">{intro}</div>
+<section id="intro" className={intro ? "section has-background-grey" : "section-small has-background-grey"}>
+            <div className="container content has-text-white-ter">
+                <article>
+                {intro_title ? 
+                <h1 className="title has-text-white-ter">
+                  {intro_title}
+                </h1>
+                : ""}
+                {intro ? 
+                <h2 className="subtitle has-text-white-ter is-size-5 has-text-weight-normal">{intro}</h2>
+                : "" }
+              </article>
+              
+            </div>
       </section>
 
       <section id="subnav">
@@ -93,6 +99,7 @@ const Page = ({ data }) => {
         bottomHeroText={page.acf.bottom_hero_text}
         bottomHeroImage={page.acf.bottom_hero_image}
         intro={page.acf.intro_paragraph}
+        intro_title={page.acf.intro_h1}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
         children={page.children}
@@ -129,6 +136,7 @@ export const pageQuery = graphql`
         hero_subtitle
         hero_title
         intro_paragraph
+        intro_h1
 
         background_image_top_left {
           localFile {

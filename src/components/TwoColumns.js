@@ -19,6 +19,12 @@ export const TwoColumns = ({
   image1,
   image2,
   image3,
+  link1,
+  link2,
+  link3,
+  link4,
+  link5,
+  link6
 }) => {
   if(text1 && text2){
   return (
@@ -31,6 +37,7 @@ export const TwoColumns = ({
               <ColumnBox
                 title={title2}
                 text={text2}
+                link={link2}
                 classes="has-background-grey is-half"
               />
               {image1 ? 
@@ -38,11 +45,13 @@ export const TwoColumns = ({
                 title={title1}
                 text={text1}
                 image={image1}
+                link={link1}
                 classes="has-background-dark is-half"
               /> : 
               <ColumnBox
                 title={title1}
                 text={text1}
+                link={link1}
                 classes="has-background-dark is-half"
               />}
               
@@ -53,16 +62,19 @@ export const TwoColumns = ({
                 title={title1}
                 text={text1}
                 image={image1}
+                link={link1}
                 classes="has-background-dark is-half"
               /> : 
               <ColumnBox
                 title={title1}
                 text={text1}
+                link={link1}
                 classes="has-background-dark is-half"
               />}
               <ColumnBox
                 title={title2}
                 text={text2}
+                link={link2}
                 classes="has-background-grey is-half"
               />
             </div>
@@ -72,6 +84,7 @@ export const TwoColumns = ({
             <ColumnBox
               title={title3}
               text={text3}
+              link={link3}
               classes="has-background-grey is-half"
             />
             {image2 ? 
@@ -79,11 +92,13 @@ export const TwoColumns = ({
               title={title4}
               text={text4}
               image={image2}
+              link={link4}
               classes="has-background-dark is-half"
             /> :
             <ColumnBox
               title={title4}
               text={text4}
+              link={link4}
               classes="has-background-dark is-half"
             />}
           </div>}
@@ -93,6 +108,7 @@ export const TwoColumns = ({
               <ColumnBox
                 title={title6}
                 text={text6}
+                link={link6}
                 classes="has-background-grey is-half"
               />
               {image3 ? 
@@ -100,12 +116,14 @@ export const TwoColumns = ({
                 title={title5}
                 text={text5}
                 image={image3}
+                link={link5}
                 classes="has-background-dark is-half"
                 
               /> : 
               <ColumnBox
                 title={title5}
                 text={text5}
+                link={link5}
                 classes="has-background-dark is-half"
               />}
             </div>
@@ -115,17 +133,20 @@ export const TwoColumns = ({
                 title={title5}
                 text={text5}
                 image={image3}
+                link={link5}
                 classes="has-background-dark is-half"
                 
               /> : 
               <ColumnBox
                 title={title5}
                 text={text5}
+                link={link5}
                 classes="has-background-dark is-half"
               />}
               <ColumnBox
                 title={title6}
                 text={text6}
+                link={link6}
                 classes="has-background-grey is-half"
               />
             </div>

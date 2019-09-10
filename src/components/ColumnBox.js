@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image-es5'
 
 const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
@@ -19,7 +19,7 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
   />
 )
 
-export const ColumnBox = ({ title, text, image, classes, imageClasses}) => {
+export const ColumnBox = ({ title, text, image, link, classes, imageClasses}) => {
   const columnClasses = `column is-paddingless ${classes}`
   return (
     <div className={columnClasses}>
@@ -35,6 +35,14 @@ export const ColumnBox = ({ title, text, image, classes, imageClasses}) => {
               <span className="has-text-weight-bold">{title}</span>
             </p>
             <p className="subtitle has-text-white-ter">{text}</p>
+            {link && 
+            <Link
+                        to={link}
+                        
+                      >
+                        More info
+                      </Link>
+            }
           </article>
         </Img>
       ) : (
@@ -44,6 +52,15 @@ export const ColumnBox = ({ title, text, image, classes, imageClasses}) => {
               <span className="has-text-weight-bold">{title}</span>
             </p>
             <p className="subtitle has-text-white-ter">{text}</p>
+            
+            {link && 
+            <Link
+                        to={link}
+                        className="button is-light"
+                      >
+                        More info
+                      </Link>
+            }
           </article>
       </div>
       )}

@@ -64,8 +64,8 @@ export default class VenueMap extends React.Component {
               <p>We can also meet you at our own venues:</p>
               <ul>
                 <li>Our Practice Hub – Bolney Place, Cowfold Road, RH17 5QT</li>
-                <li>London Temple Chambers – Middle Temple Lane, London, EC4Y 7AY</li>
-                <li>Brighton Chambers – 22 Ship Street, Brighton, BN1 1AD</li>
+                <li>London Temple Chambers</li>
+                <li>Brighton Chambers</li>
               </ul>
             </div>
             <div className="column is-half">

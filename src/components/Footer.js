@@ -63,6 +63,8 @@ const Footer = () => (
             <div className="column">
               <p className="iyd-footer-link-title">Company</p>
               <p>
+                In Your Defence
+                <br />
                 Bolney Place
                 <br />
                 Cowfold Road
@@ -71,17 +73,24 @@ const Footer = () => (
                 <br />
                 West Sussex
                 <br />
-                RH17 5QT
+                Haywards Heath
                 <br />
-                United Kingdom
+                RH17 5QT
+              </p>
+            </div>
+            <div className="column">
+              <p className="iyd-footer-link-title">Contact</p>
+              <p>
+                tel: +44 (0)1293 550400
+                <br />
+                email: support@iydl.co.uk
+                
               </p>
             </div>
             <div className="column">
               <p className="iyd-footer-link-title">About</p>
               <p>
-                Specialist Criminal Defence Solicitors and Lawyers, In Your
-                Defence Ltd Offer Representation To People Accused Of Or Under
-                Suspicion Of Criminal Offences.
+              Specialist Criminal Defence solicitors and lawyers based in Crawley. In Your Defence offer representation to people accused of or under suspicion of Criminal Offences. Covering General Offences, Motoring Offences and Sexual Offences Nationwide.
               </p>
             </div>
           </div>

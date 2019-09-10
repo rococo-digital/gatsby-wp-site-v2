@@ -10,7 +10,13 @@ const TemplateWrapper = ({ siteUrl, slug, image, yoast, children }) => (
 
   <div>
     {yoast ?
-    <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_title} titleTemplate={`%s | ${yoast.yoast_wpseo_title}`}>
+    <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_website_name} titleTemplate={`%s | ${yoast.yoast_wpseo_title}`}>
+      {yoast.yoast_wpseo_title ? 
+      <meta name="title" content={yoast.yoast_wpseo_title} /> :
+      <meta name="title" content="In Your Defence" />}
+      {yoast.yoast_wpseo_metadesc ?
+      <meta name="description" content={yoast.yoast_wpseo_metadesc} /> :
+      <meta name="description" content="Specialist Criminal Defence Solicitors and Lawyers, In Your Defence Ltd Offer Representation To People Accused Of Or Under Suspicion Of Criminal Offences." />}
       <html lang="en" />
       <meta name="docsearch:version" content="2.0" />
       <meta
@@ -23,9 +29,9 @@ const TemplateWrapper = ({ siteUrl, slug, image, yoast, children }) => (
       {yoast.yoast_wpseo_metadesc && <meta property="og:description" content={yoast.yoast_wpseo_metadesc} />}
       <meta property="og:url" content={siteUrl + "/" + slug} />
       {yoast.yoast_wpseo_website_name && <meta property="og:site_name" content={yoast.yoast_wpseo_website_name} />}
-      {image && <meta property="og:image" content={image.localFile.childImageSharp.fluid.src} />}
-      {image && <meta property="og:image:width" content={image.localFile.childImageSharp.fluid.width} />}
-      {image && <meta property="og:image:height" content={image.localFile.childImageSharp.fluid.height} />}
+      {image ? <meta property="og:image" content={image.localFile.childImageSharp.fluid.src} /> : <meta property="og:image" content={favicon} />}
+      {image ? <meta property="og:image:width" content={image.localFile.childImageSharp.fluid.width} /> : <meta property="og:image:width" content="692" />}
+      {image ? <meta property="og:image:height" content={image.localFile.childImageSharp.fluid.height} /> : <meta property="og:image:height" content="773" />}
       <meta name="twitter:card" content="summary_large_image" />
       {yoast.yoast_wpseo_twitter_description && <meta name="twitter:description" content={yoast.yoast_wpseo_twitter_description} />}
       {yoast.yoast_wpseo_twitter_title && <meta name="twitter:title" content={yoast.yoast_wpseo_twitter_title} />}

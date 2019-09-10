@@ -116,6 +116,7 @@ svg
 .footer.section p.iyd-footer-link
     margin-bottom: .3rem
     text-align: left
+    
 
 .iyd-footer-star   
     transition-duration: 86ms
@@ -135,7 +136,8 @@ svg
       transform: translateY(-.5rem)
 
 
-
+footer.footer a
+  text-decoration: none
 
 section#intro.section
   font-weight: 600
@@ -149,6 +151,17 @@ section#intro.section
 
 #mainNavbar.navbar-menu a.navbar-item
   align-self: stretch
+
+#mainNavbar.navbar-menu
+  justify-content: flex-end
+
+#mainNavbar.navbar-menu .navbar-end
+  margin-left: 0
+  margin-right: 1rem
+
+
+nav.navbar .navbar-brand
+  margin-left: 1rem
 
 .article-padded
   padding: 3rem 1rem
@@ -214,10 +227,14 @@ section#intro article h1.title
   margin-top: 1rem
 
 #call-to-action
-    padding: 0
+    padding: 2rem 0
     margin-left: 0
     margin-bottom: 0rem
     clear: both
+    text-align: center
+
+#call-to-action article
+  display: inline-block
 
 .hero.hero-bottom .hero-body
   padding: 4rem 0rem
@@ -260,3 +277,12 @@ ul.anchor-list
   li + li
     margin-top: 0
     
+a
+  text-decoration: underline
+
+a.button
+  text-decoration: none
+
+a.navbar-link, a.navbar-item
+  text-decoration: none
+

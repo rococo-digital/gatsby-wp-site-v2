@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/iyd-logo.svg'
+import logo from '../img/iydl_logo.svg'
 
 const MainMenu = () => (
   <StaticQuery
@@ -36,7 +36,7 @@ const MainMenu = () => (
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
             <figure className="image">
-              <img src={logo} alt="In Your Defence" style={{ width: '235px' }} />
+              <img src={logo} alt="In Your Defence" style={{ width: '108px' }} />
             </figure>
           </Link>
 
@@ -60,8 +60,8 @@ const MainMenu = () => (
         </div>
 
         <div id="mainNavbar" className="navbar-menu">
-          <div className="navbar-start">
-            {data.allWordpressWpApiMenusMenusItems.edges.map((menu, key) => (<div key={key} className="navbar-start">{menu.node.name === "MainMenu" && 
+          <div className="navbar-end">
+            {data.allWordpressWpApiMenusMenusItems.edges.map((menu, key) => (<div key={key} className="navbar-end">{menu.node.name === "MainMenu" && 
             menu.node.items.map(
               (item, index) => (
                 
