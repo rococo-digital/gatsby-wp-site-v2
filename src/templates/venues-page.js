@@ -77,7 +77,7 @@ export const VenuesPageTemplate = ({
         image2={boxBackgroundImage2}
       />
 
-      <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />
+    {bottomHeroImage && bottomHeroText && <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />}
     </main>
   )
 }

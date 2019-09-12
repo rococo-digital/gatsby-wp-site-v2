@@ -20,7 +20,7 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
 )
 
 export const ColumnBox = ({ title, text, image, link, classes, imageClasses}) => {
-  const columnClasses = `column is-paddingless ${classes}`
+  const columnClasses = `column is-sidepaddingless ${classes}`
   return (
     <div className={columnClasses}>
       {image ? (
@@ -38,7 +38,7 @@ export const ColumnBox = ({ title, text, image, link, classes, imageClasses}) =>
             {link && 
             <Link
                         to={link}
-                        
+                        className="button is-light"
                       >
                         More info
                       </Link>

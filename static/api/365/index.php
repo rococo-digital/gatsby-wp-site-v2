@@ -21,7 +21,7 @@ if ($_POST)
 		try {
 
 			http_response_code(200);
-			$subject = 'Website enquiry from ' . $_POST['name'];
+			$subject = 'Website enquiry from ' . $_POST['name'] . ' about ' . $_POST['subject'];
 			$to = "website@iydl.co.uk";
 			$from = "website@iydl.co.uk";
 			$replyto = $_POST['email'];
@@ -37,8 +37,7 @@ if ($_POST)
 			$mail->AddReplyTo($replyto, 'Website user: ' . $_POST['name']);
 			$mail->SetFrom($from, 'FromEmail');
 			$mail->addAddress($to, 'ToEmail');
-			$mail->SMTPDebug  = 3;
-			$mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";}; $mail->Debugoutput = 'echo';
+			
 			$mail->IsHTML(true);
 
 			$mail->Subject = $subject;

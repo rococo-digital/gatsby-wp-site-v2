@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import Img from "gatsby-image"
 
 const Footer = () => (
   <StaticQuery
@@ -21,15 +20,6 @@ const Footer = () => (
                   url
                 }
               }
-            }
-          }
-        }
-        file(relativePath: { eq: "sra.jpg" }) {
-          childImageSharp {
-            # Specify the image processing specifications right in the query.
-            # Makes it trivial to update as your page's design changes.
-            fixed( height :225) {
-              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -61,19 +51,18 @@ const Footer = () => (
               ))}
             </div>
             <div className="column">
-              <p className="iyd-footer-link-title">Company</p>
+              <p className="iyd-footer-link-title">In Your Defence Ltd</p>
               <p>
-                In Your Defence
-                <br />
+              
                 Bolney Place
                 <br />
                 Cowfold Road
                 <br />
                 Bolney
                 <br />
-                West Sussex
-                <br />
                 Haywards Heath
+                <br />
+                West Sussex
                 <br />
                 RH17 5QT
               </p>
@@ -81,9 +70,13 @@ const Footer = () => (
             <div className="column">
               <p className="iyd-footer-link-title">Contact</p>
               <p>
-                tel: +44 (0)1293 550400
+                <a
+                href="tel:+44 (0)1293 550400"
+                >tel: +44 (0)1293 550400</a>
                 <br />
-                email: support@iydl.co.uk
+                <a href="mailto:support@iydl.co.uk"
+                >
+                email: support@iydl.co.uk</a>
                 
               </p>
             </div>
@@ -92,14 +85,14 @@ const Footer = () => (
               <p>
               Specialist Criminal Defence solicitors and lawyers based in Crawley. In Your Defence offer representation to people accused of or under suspicion of Criminal Offences. Covering General Offences, Motoring Offences and Sexual Offences Nationwide.
               </p>
+              <iframe frameborder="0" scrolling="no" allowTransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html" ></iframe>
+              <p>
+              We are authorised and regulated by the Solicitors Regulation Authority 592182
+              </p>
             </div>
           </div>
         </div>
-        <div className="columns is-centered">
-        <div className="column is-one-third">
-          <Img fixed={data.file.childImageSharp.fixed} />
-          </div>
-        </div>
+      
       </footer>
     )}
   />

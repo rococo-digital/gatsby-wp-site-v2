@@ -32,8 +32,8 @@ const Map = ReactMapboxGl.Map({
   accessToken:
     'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
 });
-const zoom = [7.0]
-const center = [-0.202432, 50.995418]
+const zoom = [5.4]
+const center = [-1.123673, 52.245292]
 
 export default class VenueMap extends React.Component {
   state = {
@@ -44,6 +44,7 @@ export default class VenueMap extends React.Component {
       bearing: 0,
       pitch: 0,
     },
+    manchester_active: false,
     brighton_active: false,
     bolney_active: false,
     london_active: false
@@ -66,6 +67,7 @@ export default class VenueMap extends React.Component {
                 <li>Our Practice Hub – Bolney Place, Cowfold Road, RH17 5QT</li>
                 <li>London Temple Chambers</li>
                 <li>Brighton Chambers</li>
+                <li>Manchester Chambers</li>
               </ul>
             </div>
             <div className="column is-half">
@@ -98,12 +100,12 @@ export default class VenueMap extends React.Component {
                   
                 </Marker>
                 {this.state.london_active ? <Popup
-                    coordinates={[-0.111340, 51.513222]}
+                    coordinates={[-0.127758, 51.507351]}
                     >
                     <p>London Temple Chambers</p>
                   </Popup>:null}
                 <Marker
-                   coordinates={[-0.111340, 51.513222]}
+                   coordinates={[-0.127758, 51.507351]}
                   type="symbol"
                   id="London"
                   layout={{ 'icon-image': 'marker-15' }}
@@ -115,18 +117,38 @@ export default class VenueMap extends React.Component {
                 </Marker>
                 {this.state.brighton_active ? <Popup
                   id="brighton-info"
-                      coordinates={[-0.141831, 50.821927]}
+                      coordinates={[-0.136420, 50.819519]}
                       >
                       <p>Brighton Chambers</p>
                   </Popup>:
                   null}
                 <Marker
-                  coordinates={[-0.141831, 50.821927]}
+                  coordinates={[-0.136420, 50.819519]}
                   type="symbol"
                   id="Brighton"
                   layout={{ 'icon-image': 'marker-15' }}
                   onClick={() => {
                     this.setState({brighton_active: !this.state.brighton_active});
+                    }}>
+                
+                  <img src={markerIcon} />
+                  
+
+                </Marker>
+                {this.state.manchester_active ? <Popup
+                  id="manchester-info"
+                      coordinates={[-2.242631, 53.480759]}
+                      >
+                      <p>Manchester Chambers</p>
+                  </Popup>:
+                  null}
+                <Marker
+                  coordinates={[-2.242631, 53.480759]}
+                  type="symbol"
+                  id="Manchester"
+                  layout={{ 'icon-image': 'marker-15' }}
+                  onClick={() => {
+                    this.setState({manchester_active: !this.state.manchester_active});
                     }}>
                 
                   <img src={markerIcon} />

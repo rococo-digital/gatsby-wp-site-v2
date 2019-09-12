@@ -37,8 +37,8 @@ module.exports = {
               protocol: `https`,
               // defaults
               maxWidth: 650,
-              wrapperStyle: ``,
-              postTypes: ["page"],
+              wrapperStyle: `inline-image`,
+              postTypes: ["post", "page"],
               backgroundColor: `white`,
               withWebp: true, // enable WebP files generation
             }
@@ -73,7 +73,7 @@ module.exports = {
         develop: true,
         // Purge only the main css file
         purgeOnly: ['/all.sass'],
-        whitelist: ['tile', 'anchor-list', 'h1', 'h2', 'h3', 'h4', 'h5', 'call-to-action', 'quote'],
+        whitelist: ['tile', 'anchor-list', 'h1', 'h2', 'h3', 'h4', 'h5', 'call-to-action', 'quote', 'directors', 'gatsby-image-wrapper'],
         whitelistPatterns: [/^btn/, /^column/, /^has-background/, /^is-one/, /^font/, /^content/, /^call-to-action/, /^section/, /^is-/]
       },
     },

@@ -13,7 +13,7 @@ const TemplateWrapper = ({ siteUrl, slug, image, yoast, children }) => (
     <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_website_name} titleTemplate={`%s | ${yoast.yoast_wpseo_title}`}>
       {yoast.yoast_wpseo_title ? 
       <meta name="title" content={yoast.yoast_wpseo_title} /> :
-      <meta name="title" content="In Your Defence" />}
+      <meta name="title" content="In Your Defence - Criminal Defence Solicitors" />}
       {yoast.yoast_wpseo_metadesc ?
       <meta name="description" content={yoast.yoast_wpseo_metadesc} /> :
       <meta name="description" content="Specialist Criminal Defence Solicitors and Lawyers, In Your Defence Ltd Offer Representation To People Accused Of Or Under Suspicion Of Criminal Offences." />}

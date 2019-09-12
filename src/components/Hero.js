@@ -17,7 +17,7 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
 
 export const Hero = ({ featuredImage, title, subtitle }) => (
     <div>
-    {featuredImage ? (
+    {featuredImage && 
         <Img
           tag="section"
           fluid={featuredImage.localFile.childImageSharp.fluid}
@@ -38,9 +38,7 @@ export const Hero = ({ featuredImage, title, subtitle }) => (
             </div>
           </section>
         </Img>
-      ) : (
-        ''
-      )}
+      }
       </div>
 )
 

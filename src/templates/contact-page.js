@@ -13,20 +13,33 @@ export const ContactPageTemplate = ({
   featuredImage,
   bottomHeroImage,
   bottomHeroText,
+  display_icons,
   intro,
+  intro_title,
   subtitle,
   hero_title,
   children,
   top_left_box_text,
   top_right_box_text,
+  middle_left_box_text,
+  middle_right_box_text,
   bottom_left_box_text,
   bottom_right_box_text,
   top_left_box_text_title,
   top_right_box_text_title,
+  middle_left_box_text_title,
+  middle_right_box_text_title,
   bottom_left_box_text_title,
   bottom_right_box_text_title,
+  top_left_link,
+  top_right_link,
+  middle_left_link,
+  middle_right_link,
+  bottom_left_link,
+  bottom_right_link,
   boxBackgroundImage,
   boxBackgroundImage2,
+  boxBackgroundImage3,
 }) => {
   return (
     <main>
@@ -36,15 +49,20 @@ export const ContactPageTemplate = ({
         subtitle={subtitle}
       />
 
-      <section
-        id="intro"
-        className={
-          intro
-            ? 'section has-background-grey'
-            : 'section-small has-background-grey'
-        }
-      >
-        <div className="container content has-text-white-ter">{intro}</div>
+      <section id="intro" className={intro ? "section has-background-grey" : "section-small has-background-grey"}>
+            <div className="container content has-text-white-ter">
+                <article>
+                {intro_title ? 
+                <h1 className="title has-text-white-ter">
+                  {intro_title}
+                </h1>
+                : ""}
+                {intro ? 
+                <h2 className="subtitle has-text-white-ter is-size-5 has-text-weight-normal">{intro}</h2>
+                : "" }
+              </article>
+              
+            </div>
       </section>
 
       <section id="subnav">
@@ -58,20 +76,11 @@ export const ContactPageTemplate = ({
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <TwoColumns
-        text1={top_left_box_text}
-        text2={top_right_box_text}
-        text3={bottom_left_box_text}
-        text4={bottom_right_box_text}
-        title1={top_left_box_text_title}
-        title2={top_right_box_text_title}
-        title3={bottom_left_box_text_title}
-        title4={bottom_right_box_text_title}
-        image1={boxBackgroundImage}
-        image2={boxBackgroundImage2}
-      />
+    <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} link1={top_left_link} link2={top_right_link} link3={middle_left_link} link4={middle_right_link} link5={bottom_left_link} link6={bottom_right_link} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>
 
-      <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />
+    {display_icons && <IconBar />}
+
+    {bottomHeroImage && bottomHeroText && <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />} 
     </main>
   )
 }
@@ -93,19 +102,32 @@ const Page = ({ data }) => {
         bottomHeroText={page.acf.bottom_hero_text}
         bottomHeroImage={page.acf.bottom_hero_image}
         intro={page.acf.intro_paragraph}
+        display_icons={page.acf.display_icons}
+        intro_title={page.acf.intro_h1}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
         children={page.children}
         top_left_box_text={page.acf.text_top_left}
         top_right_box_text={page.acf.text_top_right}
+        middle_left_box_text={page.acf.text_middle_left}
+        middle_right_box_text={page.acf.text_middle_right}
         bottom_left_box_text={page.acf.text_bottom_left}
         bottom_right_box_text={page.acf.text_bottom_right}
         top_left_box_text_title={page.acf.text_top_left_title}
         top_right_box_text_title={page.acf.text_top_right_title}
+        middle_left_box_text_title={page.acf.text_middle_left_title}
+        middle_right_box_text_title={page.acf.text_middle_right_title}
         bottom_left_box_text_title={page.acf.text_bottom_left_title}
         bottom_right_box_text_title={page.acf.text_bottom_right_title}
+        top_left_link={page.acf.link_top_left}
+        top_righ_linkt={page.acf.link_top_right}
+        middle_left_link={page.acf.link_middle_left}
+        middle_right_link={page.acf.link_middle_right}
+        bottom_left_link={page.acf.link_bottom_left}
+        bottom_right_link={page.acf.link_bottom_right}
         boxBackgroundImage={page.acf.background_image_top_left}
-        boxBackgroundImage2={page.acf.background_image_bottom_right}
+        boxBackgroundImage3={page.acf.background_image_bottom_right}
+        boxBackgroundImage2={page.acf.background_image_middle_right}
       />
     </Layout>
   )

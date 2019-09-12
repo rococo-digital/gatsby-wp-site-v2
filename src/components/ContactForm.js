@@ -22,15 +22,15 @@ if (typeof window !== `undefined`) {
   }
 }
 
-let Layer = ReactMapboxGl.Layer;
-let Feature = ReactMapboxGl.Feature;
-let Marker = ReactMapboxGl.Marker;
-let ZoomControl = ReactMapboxGl.ZoomControl;
+let Layer = ReactMapboxGl.Layer
+let Feature = ReactMapboxGl.Feature
+let Marker = ReactMapboxGl.Marker
+let ZoomControl = ReactMapboxGl.ZoomControl
 
 const Map = ReactMapboxGl.Map({
   accessToken:
     'pk.eyJ1IjoiaXlkIiwiYSI6ImNqeHl2aG91ejAzaGQzYnFteG12N2cxYWEifQ.nqXYr34IMpN53S4LXwAyeA',
-});
+})
 const zoom = [13.6]
 const center = [-0.202432, 50.995418]
 
@@ -65,7 +65,7 @@ export default class ContactForm extends React.Component {
     event.preventDefault()
     axios({
       method: 'post',
-      url: 'https://iydl.co.uk/api/365/index.php',
+      url: 'http://localhost/api/365/index.php',
       headers: { 'content-type': 'application/json' },
       data: this.state,
     })
@@ -78,7 +78,6 @@ export default class ContactForm extends React.Component {
   }
 
   render() {
-   
     return (
       <section id="form" className="section">
         <div className="container">
@@ -151,14 +150,12 @@ export default class ContactForm extends React.Component {
               </form>
             </div>
             <div className="column is-half">
-            
               <Map
                 style="mapbox://styles/iyd/cjxyvn1jb0djp1cmp1oiop131"
                 containerStyle={{
                   height: '100%',
                   width: '100%',
                 }}
-                
                 zoom={zoom}
                 center={center}
               >
@@ -173,10 +170,27 @@ export default class ContactForm extends React.Component {
                   <Feature coordinates={[-0.202432, 50.995418]} />
                 </Layer>
                 <ZoomControl />
-                
               </Map>
             </div>
           </div>
+          <section className="section">
+            <div className="content">
+              <h3 className="title">Contact details</h3>
+              <div>
+                <p>
+                  <h5>Telephone</h5>
+                  <a href="tel:+44 (0)1293 550400">+44 (0)1293 550400</a>
+                </p>
+                <br />
+                <p>
+                  <h5>Email</h5>
+                  <a href="mailto:support@iydl.co.uk">
+                    email: support@iydl.co.uk
+                  </a>
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
     )
