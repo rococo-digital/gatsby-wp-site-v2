@@ -4,29 +4,28 @@ import './all.sass'
 import TopBar from './TopBar'
 import MainMenu from './MainMenu'
 import Footer from './Footer'
-import favicon from '../img/iydl-logov.svg'
+import favicon from '../img/favicon.png'
 
 const TemplateWrapper = ({ siteUrl, slug, image, yoast, children }) => (
 
   <div>
     {yoast ?
-    <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_website_name} titleTemplate={`%s | ${yoast.yoast_wpseo_title}`}>
+    <Helmet defer={false} defaultTitle={yoast.yoast_wpseo_title} titleTemplate={`%s | ${yoast.yoast_wpseo_title}`}>
       {yoast.yoast_wpseo_title ? 
       <meta name="title" content={yoast.yoast_wpseo_title} /> :
       <meta name="title" content="In Your Defence - Criminal Defence Solicitors" />}
       {yoast.yoast_wpseo_metadesc ?
       <meta name="description" content={yoast.yoast_wpseo_metadesc} /> :
       <meta name="description" content="Specialist Criminal Defence Solicitors and Lawyers, In Your Defence Ltd Offer Representation To People Accused Of Or Under Suspicion Of Criminal Offences." />}
+      <link rel="canonical" href={siteUrl + "/" + slug} />
+      <link rel="icon" type="image/png" href={favicon} />
       <html lang="en" />
       <meta name="docsearch:version" content="2.0" />
-      <meta
-        name="viewport"
-        content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"
-      />
+      <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
       <meta property="og:locale" content="en_GB" />
-      {yoast.yoast_wpseo_title && <meta property="og:title" content={yoast.yoast_wpseo_title} />}
-      <meta property="og:type" content="website" />
-      {yoast.yoast_wpseo_metadesc && <meta property="og:description" content={yoast.yoast_wpseo_metadesc} />}
+      {yoast.yoast_wpseo_facebook_title ? <meta property="og:title" content={yoast.yoast_wpseo_facebook_title} /> : <meta property="og:title" content={yoast.yoast_wpseo_title} />}
+      {yoast.yoast_wpseo_facebook_type ? <meta property="og:type" content={yoast.yoast_wpseo_facebook_type} /> : <meta property="og:type" content="website" />}
+      {yoast.yoast_wpseo_facebook_description ? <meta property="og:description" content={yoast.yoast_wpseo_facebook_description} /> : <meta property="og:description" content={yoast.yoast_wpseo_metadesc} />}
       <meta property="og:url" content={siteUrl + "/" + slug} />
       {yoast.yoast_wpseo_website_name && <meta property="og:site_name" content={yoast.yoast_wpseo_website_name} />}
       {image ? <meta property="og:image" content={image.localFile.childImageSharp.fluid.src} /> : <meta property="og:image" content={favicon} />}

@@ -85,7 +85,7 @@ const Footer = () => (
               <p>
               Specialist Criminal Defence solicitors and lawyers based in Crawley. In Your Defence offer representation to people accused of or under suspicion of Criminal Offences. Covering General Offences, Motoring Offences and Sexual Offences Nationwide.
               </p>
-              <iframe frameborder="0" scrolling="no" allowTransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html" ></iframe>
+              <iframe frameborder="0" scrolling="no" allowTransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html" style={{height: 180}}></iframe>
               <p>
               We are authorised and regulated by the Solicitors Regulation Authority 592182
               </p>
