@@ -9,10 +9,8 @@ const Footer = () => (
       query {
         file(relativePath: { eq: "acl.jpg" }) {
           childImageSharp {
-            # Specify the image processing specifications right in the query.
-            # Makes it trivial to update as your page's design changes.
-            fixed(height: 180) {
-              ...GatsbyImageSharpFixed
+            fluid(quality: 80, maxWidth: 180) {
+              ...GatsbyImageSharpFluid_withWebp 
             }
           }
         }
@@ -95,13 +93,26 @@ const Footer = () => (
               <p className="iyd-footer-link-title">About</p>
               <p>
               Nationwide specialist criminal defence solicitors based just south of Gatwick and Crawley, near Haywards Heath. We advise, assist and represent individuals or businesses accused of criminal and motoring offences.
-              </p>
-              <iframe frameBorder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html" style={{height: 180}}></iframe>
-              <p>
-              We are authorised and regulated by the Solicitors Regulation Authority 592182
-              </p>
-              {data.file && <Img fixed={data.file.childImageSharp.fixed}
-                              />}
+              </p><p>
+                  We are authorised and regulated by the Solicitors Regulation Authority 592182
+                  </p>
+                <div className="columns">
+                
+                  <div className="column is-half">
+                    <figure class=" is-inline is-marginless">
+                      <iframe frameBorder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html"></iframe>
+                    </figure>
+                  </div>
+                  <div className="column is-half">
+                    {data.file && <Img style={{'max-width': '300px'}}fluid={data.file.childImageSharp.fluid} />}
+                  </div>
+                </div>
+                 
+                  
+    
+                  
+               
+       
             </div>
           </div>
           <div className="columns is-centered">
