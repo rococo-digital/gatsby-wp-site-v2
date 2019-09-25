@@ -44,6 +44,7 @@ export const PageTemplate = ({
   boxBackgroundImage,
   boxBackgroundImage2,
   boxBackgroundImage3,
+  above_content_bool,
 
 }) => {
   
@@ -69,13 +70,14 @@ export const PageTemplate = ({
       </section>
 
       <SubNavList slug={slug}/>
+      {above_content_bool && <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} link1={top_left_link} link2={top_right_link} link3={middle_left_link} link4={middle_right_link} link5={bottom_left_link} link6={bottom_right_link} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>}
 
       <div
         className="is-fullwidth"
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} link1={top_left_link} link2={top_right_link} link3={middle_left_link} link4={middle_right_link} link5={bottom_left_link} link6={bottom_right_link} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>
+      {!above_content_bool && <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} link1={top_left_link} link2={top_right_link} link3={middle_left_link} link4={middle_right_link} link5={bottom_left_link} link6={bottom_right_link} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>}
 
       {display_icons && <IconBar />}
 
@@ -96,7 +98,7 @@ const Page = ({ data }) => {
   const { wordpressPage: page } = data
 
   return (
-    <Layout siteUrl={data.site.siteMetadata.siteUrl} slug={page.slug} image={page.featured_media} yoast={page.yoast_meta} menus={data.allWordpressWpApiMenusMenusItems}>
+    <Layout siteUrl={data.site.siteMetadata.siteUrl} slug={page.slug} path={page.path} image={page.featured_media} yoast={page.yoast_meta} menus={data.allWordpressWpApiMenusMenusItems}>
       <PageTemplate
         title={page.title}
         content={page.content}
@@ -131,6 +133,7 @@ const Page = ({ data }) => {
         boxBackgroundImage={page.acf.background_image_top_left}
         boxBackgroundImage3={page.acf.background_image_bottom_right}
         boxBackgroundImage2={page.acf.background_image_middle_right}
+        above_content_bool={page.acf.above_content_bool}
       />
     </Layout>
   )
@@ -168,6 +171,7 @@ export const pageQuery = graphql`
       }
     }
     wordpressPage(id: { eq: $id }) {
+      path
       title
       content
       yoast_meta {
@@ -241,6 +245,7 @@ export const pageQuery = graphql`
         link_middle_right
         link_bottom_left
         link_bottom_right
+        above_content_bool
         
         bottom_hero_text
         bottom_hero_image{

@@ -56,7 +56,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Call `createPage()` once per WordPress page
       _.each(pages, ({ node: page }) => {
         
-       
+        console.error(page.path.toString());
         if (page.path === '/about-us/blog/') {
           console.error(page.path.toString());
           component = blogPageTemplate;
@@ -77,7 +77,7 @@ exports.createPages = ({ actions, graphql }) => {
           component: component,
           context: {
             id: page.id,
-            slug: page.slug,
+            slug: page.path,
           },
         })
       })

@@ -39,6 +39,7 @@ export default class ContactForm extends React.Component {
     name: '',
     subject: '',
     email: '',
+    telephone: '',
     message: '',
     mailSent: false,
     error: null,
@@ -113,6 +114,20 @@ export default class ContactForm extends React.Component {
                   </div>
                 </div>
                 <div className="field">
+                  <label className="label">Telephone</label>
+                  <div className="control">
+                    <input
+                      type="tel"
+                      className="input"
+                      name="tel"
+                      id="tel"
+                      placeholder="Your telephone number"
+                      value={this.state.telephone}
+                      onChange={this.handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div className="field">
                   <label className="label">Subject</label>
                   <div className="control">
                     <input
@@ -141,7 +156,7 @@ export default class ContactForm extends React.Component {
                 </div>
                 <div className="field is-grouped is-grouped-centered">
                   <p className="control">
-                    <button className="button is-primary" type="submit">
+                    <button className="button is-medium has-background-info is-primary" type="submit">
                       Send
                     </button>
                   </p>
@@ -181,13 +196,7 @@ export default class ContactForm extends React.Component {
                   <h5>Telephone</h5>
                   <a href="tel:+44 (0)1293 550400">+44 (0)1293 550400</a>
                 </p>
-                <br />
-                <p>
-                  <h5>Email</h5>
-                  <a href="mailto:support@iydl.co.uk">
-                    email: support@iydl.co.uk
-                  </a>
-                </p>
+                <p><h5>Email</h5><a href="mailto:support@iydl.co.uk">support@iydl.co.uk</a></p>
               </div>
             </div>
           </section>

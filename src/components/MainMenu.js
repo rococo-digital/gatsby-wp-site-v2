@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import github from '../img/github-icon.svg'
 import logo from '../img/iydl_logo.svg'
+import m23logo from '../img/m23_law_logo.svg'
 
-const MainMenu = () => (
+export const MainMenu = ({path}) => (
+  
   <StaticQuery
     query={graphql`
       query {
@@ -35,10 +38,17 @@ const MainMenu = () => (
       >
         <div className="navbar-brand">
           <Link to="/" className="navbar-item">
-            <figure className="image">
+            <figure className="image brand-icon">
               <img src={logo} alt="In Your Defence" style={{ width: '108px' }} />
             </figure>
           </Link>
+          
+          {path && path.includes("motoring-offences")  && 
+            <Link to="/motoring-offences/" className="navbar-item">
+            <figure className="image brand-icon">
+              <img src={m23logo} alt="M23 Law" style={{ width: '148px' }} />
+            </figure>
+          </Link>}
 
           <a
             role="button"
@@ -110,13 +120,15 @@ const MainMenu = () => (
             )}</div>))}
           </div>
 
-          <div className="navbar-end">
-            
-          </div>
         </div>
       </nav>
     )}
   />
+  
 )
+
+MainMenu.propTypes = {
+  path: PropTypes.string
+};
 
 export default MainMenu

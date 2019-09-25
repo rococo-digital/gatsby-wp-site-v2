@@ -64,7 +64,20 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-htaccess',
+    {
+    resolve: 'gatsby-plugin-htaccess',
+      options: {
+        https: true,
+        www: false,
+        host: 'iydl.co.uk',
+        redirect: [
+          'RewriteRule ^contact-our-team/?$ /contact [R=301,L,NE]',
+          'RewriteRule ^testimonials/?$ /about-us/testimonials [R=301,L,NE]',
+          
+        ],
+        
+      },
+    },
     {
       // Removes unused css rules
       resolve:'gatsby-plugin-purgecss',

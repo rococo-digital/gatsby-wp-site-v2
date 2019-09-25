@@ -27,7 +27,7 @@ export const Hero = ({ featuredImage, title, subtitle }) => (
             <div className="hero-body">
               <div className="container">
                 <div className="tile is-ancestor">
-                  <div className="tile is-parent is-4">
+                  <div className="tile is-parent is-6">
                     <article className="tile is-child box">
                       <h1 className="title has-text-grey">{title}</h1>
                       <h2 className="subtitle has-text-white has-text-weight-bold">{subtitle}</h2>
