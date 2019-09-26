@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { Hero } from '../components/Hero'
 import { HeroBottom } from '../components/HeroBottom'
@@ -8,6 +8,7 @@ import { SubNavList } from '../components/SubNavList'
 import TwoColumns from '../components/TwoColumns';
 import IconBar from '../components/IconBar'
 import FeaturedPosts from '../components/FeaturedPosts'
+import Intro from '../components/Intro'
 
 
 
@@ -53,23 +54,23 @@ export const PageTemplate = ({
 
       <Hero featuredImage={featuredImage} title={hero_title ? hero_title : title} subtitle={subtitle} />
 
-      <section id="intro" className={intro ? "section has-background-grey" : "section-small has-background-grey"}>
-            <div className="container content has-text-white-ter">
-                <article>
-                {intro_title ? 
-                <h1 className="title has-text-white-ter">
-                  {intro_title}
-                </h1>
-                : ""}
-                {intro ? 
-                <h2 className="subtitle has-text-white-ter is-size-5 has-text-weight-normal">{intro}</h2>
-                : "" }
-              </article>
-              
-            </div>
-      </section>
+      {slug == 'home' ? 
+        <section id="intro" className="section has-background-grey">
+          <div className="container content has-text-white-ter">
+              <article>
+                <h2 className="subtitle has-text-white-ter is-size-5 has-text-weight-normal">
+                  <strong>"If I had only a few words to summarise my impressions of Andrew Parker and his team at In Your Defence it would be Professional, Thorough, No-Nonsense, Direct, and the results…Brilliant... " <Link to="about-us/testimonials">Read more</Link>
+          </strong>
+                </h2>
+                
+            </article>
+            
+          </div>
+        </section>
+      : <Intro title={intro_title} subtitle={intro}/>}
 
       <SubNavList slug={slug}/>
+
       {above_content_bool && <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} link1={top_left_link} link2={top_right_link} link3={middle_left_link} link4={middle_right_link} link5={bottom_left_link} link6={bottom_right_link} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>}
 
       <div

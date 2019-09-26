@@ -99,12 +99,12 @@ const Footer = () => (
                 <div className="columns">
                 
                   <div className="column is-half">
-                    <figure class=" is-inline is-marginless">
+                    <figure className=" is-inline is-marginless">
                       <iframe frameBorder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html"></iframe>
                     </figure>
                   </div>
                   <div className="column is-half">
-                    {data.file && <Img style={{'max-width': '300px'}}fluid={data.file.childImageSharp.fluid} />}
+                    {data.file && <Img style={{'maxWidth': '300px'}}fluid={data.file.childImageSharp.fluid} />}
                   </div>
                 </div>
                  
