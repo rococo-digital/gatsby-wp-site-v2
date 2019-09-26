@@ -119,7 +119,7 @@ export default class ContactForm extends React.Component {
                     <input
                       type="tel"
                       className="input"
-                      name="tel"
+                      name="telephone"
                       id="tel"
                       placeholder="Your telephone number"
                       value={this.state.telephone}

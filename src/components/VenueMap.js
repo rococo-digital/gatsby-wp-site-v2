@@ -60,8 +60,8 @@ export default class VenueMap extends React.Component {
         <div className="container content">
           <div className="columns">
             <div className="column is-half">
-              <p>We are nationwide and can meet anywhere in the UK.</p>
-              <p>We can also meet you at our own venues:</p>
+              <p>We can travel to meet you anywhere in the UK.</p>
+              <p>Our venues include:</p>
               <ul>
                 <li>Our Practice Hub – Bolney Place, Cowfold Road, RH17 5QT</li>
                 <li>London Temple Chambers</li>

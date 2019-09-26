@@ -5,7 +5,6 @@ import TopBar from './TopBar'
 import MainMenu from './MainMenu'
 import Footer from './Footer'
 import favicon from '../img/favicon.png'
-import appleTouchIcon from '../img/iydl-apple-icon.png'
 
 const schemaOrgWebPage = {
   "@context": "http://schema.org",
@@ -49,7 +48,7 @@ const TemplateWrapper = ({ siteUrl, slug, path, image, yoast, children }) => (
       <meta name="description" content="Specialist Criminal Defence Solicitors and Lawyers, In Your Defence Ltd Offer Representation To People Accused Of Or Under Suspicion Of Criminal Offences." />}
       <link rel="canonical" href={siteUrl + path} />
       <link rel="icon" type="image/png" href={favicon} />
-      <link rel="apple-touch-icon" href={appleTouchIcon} />
+      <link rel="apple-touch-icon" sizes="180x180" href={siteUrl + '/iydl-apple-icon.png'} />
       <html lang="en" />
       <meta name="docsearch:version" content="2.0" />
       <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover" />
