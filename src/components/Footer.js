@@ -119,7 +119,7 @@ const Footer = () => (
             <div className="column center-text is-half">
               <div className="rococo-background">
                 <span className="dev-title">Developer</span>
-                <a href="https://www.rococodigital.co.uk" className="footer-developer-backlink">Rococo Digital</a>
+                <p>Rococo Digital</p>
               </div>
             </div>
           </div>
