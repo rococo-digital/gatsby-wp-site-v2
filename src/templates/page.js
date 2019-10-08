@@ -9,7 +9,8 @@ import TwoColumns from '../components/TwoColumns';
 import IconBar from '../components/IconBar'
 import FeaturedPosts from '../components/FeaturedPosts'
 import Intro from '../components/Intro'
-import iydlVideo from "../vid/in-your-defence-ltd-criminal-and-motoring-law-solicitors.mp4"
+import iydlVideo from "../vid/iydl_video_intro.mp4"
+import iydlVideoStill from "../vid/iydl-video-still.jpg"
 
 
 export const PageTemplate = ({
@@ -71,15 +72,15 @@ export const PageTemplate = ({
 
       {above_content_bool && <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} link1={top_left_link} link2={top_right_link} link3={middle_left_link} link4={middle_right_link} link5={bottom_left_link} link6={bottom_right_link} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>}
       
-      {/* {slug == 'our-approach' && 
+      {slug == 'our-approach' && 
         <section id="video" className="section">
           <div className="container content">
-            <video controls poster>
+            <video controls poster={iydlVideoStill}>
               <source src={iydlVideo} type="video/mp4" />
             </video>
           </div>
         </section>
-      } */}
+      }
       <div
         className="is-fullwidth"
         dangerouslySetInnerHTML={{ __html: content }}
