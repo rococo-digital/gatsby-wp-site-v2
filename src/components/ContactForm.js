@@ -192,11 +192,11 @@ export default class ContactForm extends React.Component {
             <div className="content">
               <h3 className="title">Contact details</h3>
               <div>
-                <p>
+                <span>
                   <h5>Telephone</h5>
                   <a href="tel:+44 (0)1293 550400">+44 (0)1293 550400</a>
-                </p>
-                <p><h5>Email</h5><a href="mailto:support@iydl.co.uk">support@iydl.co.uk</a></p>
+                </span>
+                <span><h5>Email</h5><a href="mailto:support@iydl.co.uk">support@iydl.co.uk</a></span>
               </div>
             </div>
           </section>

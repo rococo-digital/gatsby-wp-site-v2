@@ -12,14 +12,16 @@ export default class BlogPage extends React.Component {
           <div className="content">
             <h1 className="has-text-weight-bold is-size-2">{title}</h1>
           </div>
+          <ul className="columns is-multiline is-3 is-variable ">
           {posts.map(({ node: post }) => (
-            <div
-              className="content box"
+            <div className="blog-column column is-half">
+            <li
+              className="content box fill-height has-background-grey has-text-white-ter"
               
               key={post.id}
             >
               <p>
-                <Link className="title" to={post.slug}>
+                <Link className="title has-text-white-ter" to={post.slug}>
                   {post.title}
                 </Link>
                 <span> &bull; </span>
@@ -36,12 +38,14 @@ export default class BlogPage extends React.Component {
                     __html: post.excerpt.replace(/<p class="link-more.*/, ''),
                   }}
                 />
-                <Link className="button is-small" to={post.slug}>
+                <Link className="button is-light" to={post.slug}>
                   Keep Reading →
                 </Link>
               </div>
+            </li>
             </div>
           ))}
+          </ul>
         </div>
       </section>
     )

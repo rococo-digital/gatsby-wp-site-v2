@@ -88,6 +88,9 @@ const Footer = () => (
                 email: support@iydl.co.uk</a>
                 
               </p>
+              <figure className="sra-iframe is-inline is-marginless">
+                      <iframe frameBorder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html"></iframe>
+                    </figure>
             </div>
             <div className="column">
               <p className="iyd-footer-link-title">About</p>
@@ -96,23 +99,8 @@ const Footer = () => (
               </p><p>
                   We are authorised and regulated by the Solicitors Regulation Authority 592182
                   </p>
-                <div className="columns">
-                
-                  <div className="column is-half">
-                    <figure className=" is-inline is-marginless">
-                      <iframe frameBorder="0" scrolling="no" allowtransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html"></iframe>
-                    </figure>
-                  </div>
-                  <div className="column is-half">
-                    {data.file && <Img style={{'maxWidth': '300px'}}fluid={data.file.childImageSharp.fluid} />}
-                  </div>
-                </div>
-                 
-                  
-    
-                  
-               
-       
+                  {data.file && <Img style={{'maxWidth': '300px'}}fluid={data.file.childImageSharp.fluid} />}
+
             </div>
           </div>
           <div className="columns is-centered">

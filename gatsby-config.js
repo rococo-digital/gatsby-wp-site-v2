@@ -71,11 +71,17 @@ module.exports = {
         www: false,
         host: 'iydl.co.uk',
         redirect: [
+          {
+            from: 'iydl-sexualoffences.com',
+            to: 'iydl-sexualoffences.com/sexual-offences',
+          },
+          {
+            from: 'm23law.com',
+            to: 'iydl.co.uk/motoring-offences/',
+          },
           'RewriteRule ^contact-our-team/?$ /contact [R=301,L,NE]',
           'RewriteRule ^testimonials/?$ /about-us/testimonials [R=301,L,NE]',
-          
         ],
-        
       },
     },
     {
@@ -86,7 +92,7 @@ module.exports = {
         develop: true,
         // Purge only the main css file
         purgeOnly: ['/all.sass'],
-        whitelist: ['tile', 'anchor-list', 'h1', 'h2', 'h3', 'h4', 'h5', 'call-to-action', 'quote', 'directors', 'gatsby-image-wrapper'],
+        whitelist: ['tile', 'anchor-list', 'h1', 'h2', 'h3', 'h4', 'h5', 'call-to-action', 'quote', 'directors', 'gatsby-image-wrapper', 'wp-video', 'sra-iframe'],
         whitelistPatterns: [/^btn/, /^column/, /^has-background/, /^is-one/, /^font/, /^content/, /^call-to-action/, /^section/, /^is-/]
       },
     },
