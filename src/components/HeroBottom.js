@@ -25,8 +25,15 @@ export const HeroBottom = ({ featuredImage, text }) => (
         <section className="hero hero-bottom">
           <div className="hero-body">
             <div className="box">
-              <div className="columns is-centered">
-                <div className="column is-8">
+              <div className="columns is-centered is-vcentered">
+                <div className="column is-6">
+
+                <video controls poster="https://iydl.co.uk/vid/iydl-video-still.jpg">
+                    <source src="https://iydl.co.uk/vid/iydl_video_intro.mp4" type="video/mp4"/>
+                </video>
+
+                </div>
+                <div className="column is-6">
                   <p className="title has-text-white has-text-weight-bold has-text-centered">
                     {text}
                     
