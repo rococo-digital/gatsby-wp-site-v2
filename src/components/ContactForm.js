@@ -37,7 +37,6 @@ const center = [-0.202432, 50.995418]
 export default class ContactForm extends React.Component {
   state = {
     name: '',
-    subject: '',
     email: '',
     telephone: '',
     message: '',
@@ -96,6 +95,7 @@ export default class ContactForm extends React.Component {
                       placeholder="Your name"
                       value={this.state.name}
                       onChange={this.handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -110,6 +110,7 @@ export default class ContactForm extends React.Component {
                       placeholder="Your email"
                       value={this.state.email}
                       onChange={this.handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -124,22 +125,11 @@ export default class ContactForm extends React.Component {
                       placeholder="Your telephone number"
                       value={this.state.telephone}
                       onChange={this.handleInputChange}
+                      required
                     />
                   </div>
                 </div>
-                <div className="field">
-                  <label className="label">Subject</label>
-                  <div className="control">
-                    <input
-                      type="text"
-                      className="input"
-                      name="subject"
-                      id="subject"
-                      value={this.state.subject}
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                </div>
+                
                 <div className="field">
                   <label className="label">Message</label>
                   <div className="control">

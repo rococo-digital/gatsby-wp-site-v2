@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import BackgroundImage from 'gatsby-background-image-es5'
 
@@ -15,6 +16,22 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
 )
 
 export const HeroBottom = ({ featuredImage, text }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        file(relativePath: { eq: "iydl-video-still.jpg" }) {
+          childImageSharp{
+            original{
+              src
+            }
+            fluid(quality: 80, maxWidth: 1024) {
+              ...GatsbyImageSharpFluid_withWebp 
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
   <div>
     {featuredImage && text && (
       <Img
@@ -28,7 +45,7 @@ export const HeroBottom = ({ featuredImage, text }) => (
               <div className="columns is-centered is-vcentered">
                 <div className="column is-6">
 
-                <video controls poster="https://iydl.co.uk/vid/iydl-video-still.jpg">
+                <video controls poster={data.file.childImageSharp.fluid.srcWebp}>
                     <source src="https://iydl.co.uk/vid/iydl_video_intro.mp4" type="video/mp4"/>
                 </video>
 
@@ -50,7 +67,9 @@ export const HeroBottom = ({ featuredImage, text }) => (
       </Img>
     )}
   </div>
-)
+    )}
+    />)
+
 
 HeroBottom.propTypes = {
   text: PropTypes.string,

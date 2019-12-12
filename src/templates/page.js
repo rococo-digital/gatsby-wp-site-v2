@@ -14,6 +14,7 @@ import Intro from '../components/Intro'
 export const PageTemplate = ({
   title,
   content,
+  contentLower,
   featuredImage,
   bottomHeroImage,
   bottomHeroText,
@@ -22,6 +23,7 @@ export const PageTemplate = ({
   intro_title,
   subtitle,
   hero_title,
+  hero_cta_title,
   slug,
   top_left_box_text,
   top_right_box_text,
@@ -51,7 +53,7 @@ export const PageTemplate = ({
   return (
     <main>
 
-      <Hero featuredImage={featuredImage} title={hero_title ? hero_title : title} subtitle={subtitle} />
+      <Hero featuredImage={featuredImage} title={hero_title ? hero_title : title} subtitle={subtitle} cta={hero_cta_title}/>
 
       {slug == 'home' ? 
         <section id="intro" className="section has-background-grey">
@@ -79,18 +81,23 @@ export const PageTemplate = ({
           </div>
         </section>
       } */}
-      <div
+      {content && <div
         className="is-fullwidth"
         dangerouslySetInnerHTML={{ __html: content }}
-      />
+      />}
 
       {!above_content_bool && <TwoColumns text1={top_left_box_text} text2={top_right_box_text} text3={middle_left_box_text} text4={middle_right_box_text} text5={bottom_right_box_text} text6={bottom_left_box_text}  title1={top_left_box_text_title} title2={top_right_box_text_title} title3={middle_left_box_text_title} title4={middle_right_box_text_title} title5={bottom_left_box_text_title} title6={bottom_right_box_text_title} link1={top_left_link} link2={top_right_link} link3={middle_left_link} link4={middle_right_link} link5={bottom_left_link} link6={bottom_right_link} image1={boxBackgroundImage} image2={boxBackgroundImage2} image3={boxBackgroundImage3}/>}
 
       {display_icons && <IconBar />}
 
-      {display_icons && <FeaturedPosts />}
+      {contentLower && <div
+        className="is-fullwidth"
+        dangerouslySetInnerHTML={{ __html: contentLower }}
+      />}
 
       {bottomHeroImage && bottomHeroText && <HeroBottom featuredImage={bottomHeroImage} text={bottomHeroText} />}
+
+      {display_icons && <FeaturedPosts />}
 
     </main>
   )
@@ -109,6 +116,7 @@ const Page = ({ data }) => {
       <PageTemplate
         title={page.title}
         content={page.content}
+        contentLower={page.acf.content_lower}
         featuredImage={page.featured_media}
         bottomHeroText={page.acf.bottom_hero_text}
         bottomHeroImage={page.acf.bottom_hero_image}
@@ -117,6 +125,7 @@ const Page = ({ data }) => {
         intro_title={page.acf.intro_h1}
         subtitle={page.acf.hero_subtitle}
         hero_title={page.acf.hero_title}
+        hero_cta_title={page.acf.hero_cta_title}
         slug={page.slug}
 
         top_left_box_text={page.acf.text_top_left}
@@ -202,8 +211,10 @@ export const pageQuery = graphql`
     
       slug
       acf {
+        content_lower
         hero_subtitle
         hero_title
+        hero_cta_title
         intro_paragraph
         intro_h1
         display_icons

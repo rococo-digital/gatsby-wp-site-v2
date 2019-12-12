@@ -15,7 +15,7 @@ const Img = ({ objFit = `cover`, objPosition = `50% 50%`, ...props }) => (
   )
   
 
-export const Hero = ({ featuredImage, title, subtitle }) => (
+export const Hero = ({ featuredImage, title, subtitle, cta }) => (
     <div>
     {featuredImage && 
         <Img
@@ -26,13 +26,24 @@ export const Hero = ({ featuredImage, title, subtitle }) => (
           <section className="hero">
             <div className="hero-body">
               <div className="container">
-                <div className="tile is-ancestor">
-                  <div className="tile is-parent is-6">
+                <div className="columns is-vcentered">
+                  <div className="column is-6">
                     <article className="tile is-child box">
                       <h1 className="title has-text-grey">{title}</h1>
                       <h2 className="subtitle has-text-white has-text-weight-bold">{subtitle}</h2>
                     </article>
                   </div>
+                  {cta && 
+                  <div className="column is-6 is-vcentered">
+                    <p className="title has-text-white has-text-weight-bold has-text-centered">
+                      {cta}
+                      
+                    </p>
+                    <p className="has-text-centered">
+                    <a className="button is-light" href="/contact/">Call Us</a>
+                    </p>
+                    
+                  </div>}
                 </div>
               </div>
             </div>

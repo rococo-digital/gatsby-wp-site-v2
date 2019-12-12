@@ -31,6 +31,7 @@ export const TwoColumns = ({
     <section id="side-by-side" className="section">
       
         <div className="container is-fullhd">
+        <h3 class="title">Why choose us?</h3>
           {text1 && text2 &&
           <div>
             <div className="columns  is-hidden-tablet">
