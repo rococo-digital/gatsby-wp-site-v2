@@ -37,7 +37,7 @@ module.exports = {
               protocol: `https`,
               // defaults
               maxWidth: 650,
-              wrapperStyle: `inline-image`,
+              wrapperStyle: `image is-3by4`,
               postTypes: ["post", "page"],
               backgroundColor: `white`,
               withWebp: true, // enable WebP files generation
